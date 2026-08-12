@@ -21,6 +21,15 @@ log() { printf '==> %s\n' "$*"; }
 warn() { printf 'warning: %s\n' "$*" >&2; }
 die() { printf 'error: %s\n' "$*" >&2; exit 1; }
 
+record_state() {
+  mkdir -p "$(dirname "$DEMO_STATE_FILE")"
+  cat >"$DEMO_STATE_FILE" <<EOF
+CREATED_WORKSPACE_LINK=$created_workspace_link
+DEMO_WORKSPACE=$DEMO_WORKSPACE
+DEMO_CLAUDE_CONFIG_DIR=$DEMO_CLAUDE_CONFIG_DIR
+EOF
+}
+
 # --- 1. Rendering toolchain -------------------------------------------------
 missing=()
 for bin in vhs ttyd ffmpeg; do
@@ -54,6 +63,7 @@ else
   mkdir -p "$(dirname "$DEMO_WORKSPACE")"
   ln -s "$DEMO_REPO_ROOT" "$DEMO_WORKSPACE"
   created_workspace_link=1
+  record_state
   log "Linked demo workspace $DEMO_WORKSPACE -> $DEMO_REPO_ROOT"
 fi
 
@@ -81,11 +91,6 @@ if [ -z "${ANTHROPIC_API_KEY:-}" ] && [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}" ]; the
 fi
 
 # --- 6. Record state for teardown ------------------------------------------
-mkdir -p "$(dirname "$DEMO_STATE_FILE")"
-cat >"$DEMO_STATE_FILE" <<EOF
-CREATED_WORKSPACE_LINK=$created_workspace_link
-DEMO_WORKSPACE=$DEMO_WORKSPACE
-DEMO_CLAUDE_CONFIG_DIR=$DEMO_CLAUDE_CONFIG_DIR
-EOF
+record_state
 
 log "Setup complete. Render with: bash demos/vhs/render.sh"

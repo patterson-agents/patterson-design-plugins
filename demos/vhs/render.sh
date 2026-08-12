@@ -29,8 +29,8 @@ else
   done
 fi
 
-bash "$SCRIPT_DIR/scripts/setup.sh"
 trap 'bash "$SCRIPT_DIR/scripts/teardown.sh"' EXIT
+bash "$SCRIPT_DIR/scripts/setup.sh"
 
 # Tapes read these: the workspace they cd into, and an isolated Claude config so the
 # recording never shows a developer's real plugins or history.
