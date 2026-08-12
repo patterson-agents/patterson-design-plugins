@@ -45,7 +45,7 @@ function WhatWeDoScreen({ onNavigate }) {
             <div className="pat-container" style={{ paddingTop: 'var(--space-10)', paddingBottom: 'var(--space-10)', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-9)', alignItems: 'center', direction: reversed ? 'rtl' : 'ltr' }}>
               <div style={{ direction: 'ltr' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
-                  <span style={{ width: 48, height: 48, borderRadius: 'var(--radius-md)', background: 'var(--pat-sky-10)', color: 'var(--pat-sky)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}><I size={26} /></span>
+                  <span style={{ width: 48, height: 48, borderRadius: 'var(--radius-md)', background: 'var(--pat-sky-25)', color: 'var(--pat-sky)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}><I size={26} /></span>
                   <span className="pat-eyebrow">{s.eyebrow}</span>
                 </div>
                 <h2 style={{ margin: '0 0 14px' }}>{s.title}</h2>

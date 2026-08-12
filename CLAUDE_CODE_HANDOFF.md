@@ -45,7 +45,7 @@ ships four things:
 2. one or more **slash commands** (`commands/*.md`) — explicit scaffold workflows,
 3. a **subagent** (`agents/*.md`) — a specialist Claude can delegate to, and
 4. a **`ds/` snapshot** — a self-contained copy of every design-system file that plugin needs
-   (tokens, fonts, logos, the compiled `_ds_bundle.js`, and the plugin's own artifact).
+   (tokens, the CSS component layer, fonts, logos, and the plugin's own artifact).
 
 The repo also carries a docs site (`docs/`), a demo gallery + VHS tapes (`demos/`), a full
 agentic dev environment (`.devcontainer/`, `.vscode/`, `.github/`, `dotfiles/`), and a
@@ -54,8 +54,8 @@ publishable Dev Container Template (`devcontainer-template/`).
 ## About the files in this repo
 
 The HTML/JSX artifacts inside each `plugins/<name>/ds/` tree are **design references and
-runnable starters** — they render on-brand with no build step (plain `<script>` + the compiled
-`_ds_bundle.js`). They are the intended output of the plugins, not production application code.
+runnable starters** — they render on-brand with no build step, no JavaScript runtime and no CDN
+(just a `<link>` to `styles.css`). They are the intended output of the plugins, not production application code.
 When a plugin is *used*, Claude copies the relevant `ds/` files into the target project and
 adapts them to that project's stack. Nothing here needs a bundler to be viewed — open any
 `ds/**/index.html` directly in a browser.
@@ -65,12 +65,12 @@ adapts them to that project's stack. Nothing here needs a bundler to be viewed �
 - **Marketplace name:** `patterson-design` (this is the `@patterson-design` suffix used in
   `/plugin install <plugin>@patterson-design`).
 - **GitHub target:** `patterson-agents/design-system` — **keep it private** (proprietary brand
-  assets: Patterson logos, Proxima Nova woff2 subsets, brand imagery).
+  assets: Patterson logos, brand imagery). Proxima Nova is licensed from Adobe Fonts and is never bundled.
 - **Plugin count:** 9. The catalog in `.claude-plugin/marketplace.json` and the folders under
   `plugins/` must always match one-to-one.
 - **Snapshot rule:** each `ds/` mirrors the source tree so relative refs (`../../styles.css`,
-  `../../_ds_bundle.js`) resolve identically in this repo, in the plugin cache, and after being
-  copied into a consuming project. Never flatten or rename inside `ds/`.
+  `../../components/components.css`) resolve identically in this repo, in the plugin cache, and
+  after being copied into a consuming project. Never flatten or rename inside `ds/`.
 - **`.claude-plugin/` holds only manifests** — `marketplace.json` at the repo root's
   `.claude-plugin/`, and `plugin.json` at each plugin's `.claude-plugin/`. Skills, commands,
   agents live *outside* `.claude-plugin/`.
@@ -198,8 +198,8 @@ git commit -am "sync ds/ snapshots + bump versions"
 git push
 ```
 
-Never hand-edit `ds/_ds_bundle.js` — it is compiled upstream. Never move or rename files inside
-any `ds/` tree.
+Keep `ds/tokens/`, `ds/styles.css` and `ds/components/` byte-identical across all nine plugins.
+Never move or rename files inside any `ds/` tree.
 
 ## Definition of done
 

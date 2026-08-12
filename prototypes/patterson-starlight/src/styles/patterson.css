@@ -16,24 +16,25 @@
   --pat-blue: #147ec2;
   --pat-gray: #58585b;
   --pat-white: #ffffff;
-  --pat-ink: #1d1d20;
+  --pat-ink: #003767;
 
-  --pat-navy-tint-10: #e5ebf0;
-  --pat-sky-20: #ccedf9;
-  --pat-sky-40: #99dcf3;
+  /* Tints — published 75/50/25 ramp over white [BG25 p.24].
+     There is no 10/20/40/60/80 ramp in any Patterson source. */
+  --pat-navy-25: #BFCDD9;
+  --pat-sky-25: #BFE9F8;
+  --pat-sky-50: #80D4F0;
 
-  /* Fonts — proxima-nova is the real brand face (add an Adobe Fonts
-     / Typekit embed in a Head partial to render it); Figtree + system
-     stack is the free fallback. */
-  --pat-font-sans: 'proxima-nova', 'Figtree', system-ui, -apple-system,
-    'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* Fonts — proxima-nova is the brand face [BG25 p.25], served by Adobe
+     Fonts kit uth1qfm (add the kit in a Head partial to render it). Arial
+     is the sanctioned substitute [BG25 p.25]. Never self-host. */
+  --pat-font-sans: 'proxima-nova', Arial, sans-serif;   /* [BG25 p.25] */
   --pat-font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas,
     monospace;
 
   /* Type + chrome */
   --sl-font: var(--pat-font-sans);
   --sl-font-mono: var(--pat-font-mono);
-  --pat-radius-card: 10px; /* Patterson cards are 10px */
+  --pat-radius-card: 5px; /* [BG25 p.57] "Rounded corners: 5px radius" */
 }
 
 /* --- DARK theme (Starlight default = :root) --------------- */

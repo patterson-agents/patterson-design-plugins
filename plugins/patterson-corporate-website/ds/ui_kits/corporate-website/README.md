@@ -4,24 +4,26 @@ An interactive, brand-accurate recreation of **pattersoncompanies.com**, compose
 from this design system's tokens and components.
 
 ## Run it
-Open `index.html`. The bundle (`_ds_bundle.js`) and `styles.css` are loaded from the project
-root; the screens are separate Babel JSX files mounted in order.
+Open `index.html` — no server, no build, no CDN. It is static HTML styled by `styles.css`
+(which imports `components/components.css`) and renders the **Home** route; the capability
+tabs are CSS-only (`:checked`). The `.jsx` files are React sources kept for reuse — they
+are not loaded by `index.html`.
 
 ## Screens / routes
-- **Home** (`HomeScreen.jsx`) — navy hero with the brand promise, four capability pillars,
+- **Home** — rendered statically in `index.html` (React source: `HomeScreen.jsx`) — navy hero with the brand promise, four capability pillars,
   the "We Are Patterson" stats band (86M / 90% / 250M), a tabbed capabilities section, a
   news preview and a sky CTA band.
-- **What We Do** (`WhatWeDoScreen.jsx`) — page header + alternating Service / Logistics /
+- **What We Do** (React source only: `WhatWeDoScreen.jsx`) — page header + alternating Service / Logistics /
   Products sections.
-- **Newsroom** (`NewsroomScreen.jsx`) — filterable press-release list with a featured story.
+- **Newsroom** (React source only: `NewsroomScreen.jsx`) — filterable press-release list with a featured story.
 - Other nav links route to a simple placeholder (not part of the recreation).
 
 ## Composition
-- `Header.jsx` — sticky product-switch bar + main nav (active state = sky underline).
-- `Footer.jsx` — visit-our-sites, connect, contact, legal.
+- `Header.jsx` (React source) — sticky product-switch bar + main nav (active state = sky underline).
+- `Footer.jsx` (React source) — visit-our-sites, connect, contact, legal.
 - `icons.jsx` — Lucide-style inline SVG icons (2px rounded stroke).
-- Components used from `window.PattersonCompaniesDesignSystem_1f7cbe`: **Button, Card, Stat,
-  Tabs, Badge**.
+- Components come from `ds/components/components.css` as plain classes: **`.pat-btn`,
+  `.pat-card`, `.pat-stat`, `.pat-tabs`, `.pat-badge`**.
 
 ## Fidelity notes
 Built from the live site's **content, navigation, messaging and statistics** (the site's

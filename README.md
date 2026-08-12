@@ -163,8 +163,8 @@ This marketplace is **generated from the design-system project**. When tokens, a
 claude plugin validate .
 ```
 
-Rules that keep it working: only `plugin.json` lives inside `.claude-plugin/`; never flatten or move files inside `ds/`; never hand-edit `ds/_ds_bundle.js` (generated).
+Rules that keep it working: only `plugin.json` lives inside `.claude-plugin/`; never flatten or move files inside `ds/`; keep `ds/tokens/`, `ds/styles.css` and `ds/components/` byte-identical across all nine plugins.
 
 ## Brand & licensing
 
-Patterson logos, Proxima Nova woff2 subsets, and brand imagery are **proprietary**. Distribute this marketplace privately (internal git host or private GitHub repo). No emoji in any brand surface — it's a B2B healthcare distribution brand.
+Patterson logos and brand imagery are **proprietary**; Proxima Nova is licensed from Adobe Fonts (kit `uth1qfm`) and is never bundled — Adobe's Terms of Use bar re-hosting Typekit payloads. Distribute this marketplace privately (internal git host or private GitHub repo). No emoji in any brand surface — it's a B2B healthcare distribution brand.

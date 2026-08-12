@@ -35,12 +35,12 @@
     background: rgba(255,255,255,0.12); color: #fff;
     border: 1px solid rgba(255,255,255,0.28); cursor: pointer;
   }
-  .switcher select option { color: #1d1d20; }
+  .switcher select option { color: #003767; }
 
   /* --- Breadcrumb bar --------------------------------------------------- */
   .breadcrumbs {
     position: relative; display: flex; align-items: center; gap: 10px;
-    height: 44px; padding: 0 20px;
+    height: 46px; padding: 0 30px; /* [BG25 p.57] 46px control, 30px padding */
     background: var(--tk-elements-panel-header-backgroundColor);
     border-bottom: 1px solid var(--tk-elements-app-borderColor);
     font-size: 13px;
@@ -48,13 +48,13 @@
   .crumb-toggle {
     display: flex; align-items: center; gap: 8px; max-width: 70vw;
     padding: 6px 12px; border-radius: 8px; cursor: pointer;
-    border: 1px solid var(--tk-elements-app-borderColor, #ccd7e1);
+    border: 1px solid var(--tk-elements-app-borderColor, #BFCDD9);
     background: var(--tk-elements-panel-backgroundColor, #fff);
     color: var(--tk-elements-panel-header-textColor, #003767);
     font: inherit; font-weight: 600; white-space: nowrap; overflow: hidden;
   }
   .crumb-toggle span { overflow: hidden; text-overflow: ellipsis; }
-  .crumb-divider { color: var(--tk-elements-panel-header-iconColor, #99afc2); }
+  .crumb-divider { color: var(--tk-elements-panel-header-iconColor, #809BB3); }
   .crumb-caret { color: #00a8e1; font-size: 10px; }
   .lesson-count { margin-left: auto; color: var(--tk-elements-panel-textColor); font-size: 12px; }
 
@@ -70,7 +70,7 @@
   .tree-pop.open { display: block; }
   .tree-part { margin: 6px 4px 0; }
   .tree-part > .tp-title {
-    font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
     color: var(--tk-elements-panel-header-textColor); padding: 8px 8px 4px;
   }
   .tree-ch > .tc-title { font-size: 12px; font-weight: 600; color: var(--tk-elements-panel-textColor); padding: 6px 8px 2px 14px; }
@@ -124,7 +124,7 @@
 
   .callout { margin: 16px 0; border-radius: 10px; padding: 12px 16px 6px; border: 1px solid; }
   .callout p { margin: 6px 0 10px; }
-  .callout-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px; }
+  .callout-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 2px; }
   .callout-info    { background: #eaf7fd; border-color: #b3e5f8; } .callout-info    .callout-title { color: #006c96; }
   .callout-tip     { background: #f0f7ff; border-color: #c4dcf5; } .callout-tip     .callout-title { color: #0a5296; }
   .callout-warn    { background: #fdf3e2; border-color: #f3ddb0; } .callout-warn    .callout-title { color: #8a5a00; }
@@ -141,7 +141,7 @@
   }
   .nav-card:hover { background: var(--tk-elements-navCard-backgroundColorHover); border-color: var(--tk-elements-navCard-borderColorHover); }
   .nav-card.next { text-align: right; align-items: flex-end; grid-column: 2; }
-  .nav-card .dir { font-size: 11px; color: var(--tk-elements-navCard-iconColor); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  .nav-card .dir { font-size: 11px; color: var(--tk-elements-navCard-iconColor); font-weight: 700; letter-spacing: 0.06em; }
   .nav-card .t { font-weight: 600; }
   .nav-card[disabled] { visibility: hidden; }
 

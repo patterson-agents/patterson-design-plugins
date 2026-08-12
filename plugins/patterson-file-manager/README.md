@@ -50,12 +50,12 @@ The command copies `${CLAUDE_PLUGIN_ROOT}/ds` into your project as `./patterson`
 
 ```text
 ds/
-├── styles.css · tokens/ · assets/{brand,fonts}/ · _ds_bundle.js
+├── styles.css · tokens/ · components/ · assets/{brand,fonts}/
 └── templates/file-manager/
     ├── index.html          # the app shell (React 18 UMD + Babel)
     ├── app-data.js         # sample data model — replace this first
     ├── studio.js           # interaction logic
-    └── ds-base.js          # loads tokens + bundle
+    └── ds-base.js          # loads styles.css (tokens + component CSS)
 ```
 
 ## Working with it
@@ -69,7 +69,7 @@ window.APP_DATA = {
 };
 ```
 
-Keep the navy top bar with the white logo, ≥44px hit targets, and sky focus rings on every interactive element.
+Keep the navy top bar with the white logo, 46px controls [BG25 p.57], and sky focus rings on every interactive element.
 
 ## Terminal demo
 
@@ -87,4 +87,4 @@ Open [`ds/templates/file-manager/index.html`](ds/templates/file-manager/index.ht
 
 ## Brand quick reference
 
-Navy `#003767` · Sky `#00A8E1` · body gray `#58585B` — always via `var(--pat-*)` tokens, never raw hexes. Proxima Nova (Figtree fallback). Pill buttons (navy → sky on hover), 10px cards, navy-tinted shadows, sky focus ring. Voice: confident, plain-spoken, “we/you”, numbers as proof. **No emoji.** Full guide: [`patterson-brand`](../patterson-brand/) → `ds/readme.md`.
+Navy `#003767` · Sky `#00A8E1` · body gray `#58585B` — always via `var(--pat-*)` tokens, never raw hexes. Proxima Nova from Adobe Fonts kit `uth1qfm` (Arial substitute; no self-hosted files). 5px radius [BG25 p.57], 46px controls [BG25 p.57], sky focus ring. Sentence case everywhere [BG25 p.25]. Voice: confident, plain-spoken, “we/you”, numbers as proof. **No emoji.** Full guide: [`patterson-brand`](../patterson-brand/) → `ds/readme.md`.

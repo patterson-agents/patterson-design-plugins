@@ -10,17 +10,16 @@
 <!-- @template name="Patterson Docs" description="VitePress-style documentation shell organised by Diátaxis. Five scaffolded pages (How-to + Reference) wired to the sidebar, top nav and prev/next pager, with a built-in settings panel (light/dark theme, accent, width, section toggles). Edit the PAGES/NAV data in the logic to add your own; copy in place." -->
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="./ds-base.js"></script>
 <style>
   html,body{margin:0}
-  body{background:#f6f7f8}
+  body{background:#F8F8F8}
   ::selection{background:rgba(0,168,225,.22)}
   /* theme tokens (light default) */
   .pat-docs{
-    --doc-bg:#ffffff; --doc-surface:#f6f7f8; --doc-surface-2:#ffffff;
-    --doc-ink:#1d1d20; --doc-muted:#58585B; --doc-faint:#7c7c80;
-    --doc-border:#e2e2e4; --doc-border-soft:#ececec; --doc-nav-bg:rgba(255,255,255,.85);
+    --doc-bg:#ffffff; --doc-surface:#F8F8F8; --doc-surface-2:#ffffff;
+    --doc-ink:#003767; --doc-muted:#58585B; --doc-faint:#828284;
+    --doc-border:#D5D5D6; --doc-border-soft:#ececec; --doc-nav-bg:rgba(255,255,255,.85);
     --doc-accent:#147EC2; --doc-accent-strong:#003767;
     --doc-shell-max:1440px; --doc-article-max:720px;
   }
@@ -40,7 +39,7 @@
 </style>
 </helmet>
 
-<div class="pat-docs" data-theme="{{ theme }}" data-accent="{{ accent }}" data-width="{{ widthKey }}" style="font-family:var(--font-sans,'Figtree',system-ui,sans-serif);color:var(--doc-ink);min-height:100vh;background:var(--doc-bg);font-size:16px;line-height:1.6;transition:background .25s,color .25s;">
+<div class="pat-docs" data-theme="{{ theme }}" data-accent="{{ accent }}" data-width="{{ widthKey }}" style="font-family:var(--font-sans,'proxima-nova',Arial,sans-serif);color:var(--doc-ink);min-height:100vh;background:var(--doc-bg);font-size:16px;line-height:1.6;transition:background .25s,color .25s;">
 
   <!-- top nav -->
   <header style="position:sticky;top:0;z-index:20;height:64px;display:flex;align-items:center;gap:18px;padding:0 28px;background:var(--doc-nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--doc-border-soft);">
@@ -87,14 +86,14 @@
       <div style="display:flex;gap:40px;padding:32px 0 64px 40px;">
 
         <article style="flex:1;min-width:0;max-width:var(--doc-article-max);">
-          <p style="margin:0 0 8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--doc-accent);">{{ page.group }}</p>
+          <p style="margin:0 0 8px;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--doc-accent);">{{ page.group }}</p>
           <h1 style="font-size:33px;line-height:1.2;letter-spacing:-.02em;margin:0 0 8px;font-weight:800;color:var(--doc-ink);">{{ page.title }}</h1>
           <p style="font-size:18px;line-height:1.6;color:var(--doc-muted);margin:0 0 26px;">{{ page.lead }}</p>
 
           <!-- Diátaxis compass note -->
           <sc-if value="{{ showCompass }}" hint-placeholder-val="{{ true }}">
             <div style="display:flex;gap:12px;align-items:flex-start;margin:0 0 26px;padding:14px 18px;border-radius:9px;background:linear-gradient(180deg,color-mix(in srgb,var(--doc-accent) 13%,transparent),transparent);border:1px solid color-mix(in srgb,var(--doc-accent) 45%,transparent);font-size:14.5px;color:var(--doc-muted);">
-              <span style="flex:none;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#fff;background:var(--doc-accent-strong);padding:4px 9px;border-radius:20px;margin-top:1px;">Diátaxis</span>
+              <span style="flex:none;font-size:11px;font-weight:800;letter-spacing:.05em;color:#fff;background:var(--doc-accent-strong);padding:4px 9px;border-radius:20px;margin-top:1px;">Diátaxis</span>
               <span>{{ page.compass }}</span>
             </div>
           </sc-if>
@@ -159,7 +158,7 @@
       </div>
 
       <!-- theme -->
-      <p style="margin:0 0 6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--doc-faint);">Theme</p>
+      <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--doc-faint);">Theme</p>
       <div style="display:flex;gap:4px;background:var(--doc-surface);border:1px solid var(--doc-border);border-radius:9px;padding:3px;margin-bottom:16px;">
         <sc-if value="{{ themeLight }}"><span style="flex:1;text-align:center;padding:6px;border-radius:6px;font-size:13px;font-weight:700;background:var(--doc-surface-2);color:var(--doc-accent);box-shadow:0 1px 3px rgba(0,0,0,.12);">Light</span></sc-if>
         <sc-if value="{{ themeDark }}"><span onClick="{{ goThemeLight }}" style="flex:1;text-align:center;padding:6px;border-radius:6px;font-size:13px;font-weight:600;color:var(--doc-muted);cursor:pointer;">Light</span></sc-if>
@@ -168,7 +167,7 @@
       </div>
 
       <!-- accent -->
-      <p style="margin:0 0 8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--doc-faint);">Accent</p>
+      <p style="margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--doc-faint);">Accent</p>
       <div style="display:flex;gap:12px;margin-bottom:16px;">
         <sc-if value="{{ accentNavy }}"><span style="width:26px;height:26px;border-radius:50%;background:#147EC2;box-shadow:0 0 0 2px var(--doc-surface-2),0 0 0 4px #147EC2;cursor:pointer;"></span></sc-if>
         <sc-if value="{{ accentNavyOff }}"><span onClick="{{ goAccentNavy }}" style="width:26px;height:26px;border-radius:50%;background:#147EC2;cursor:pointer;"></span></sc-if>
@@ -181,7 +180,7 @@
       </div>
 
       <!-- width -->
-      <p style="margin:0 0 6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--doc-faint);">Content width</p>
+      <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--doc-faint);">Content width</p>
       <div style="display:flex;gap:4px;background:var(--doc-surface);border:1px solid var(--doc-border);border-radius:9px;padding:3px;margin-bottom:16px;">
         <sc-if value="{{ widthComfort }}"><span style="flex:1;text-align:center;padding:6px;border-radius:6px;font-size:13px;font-weight:700;background:var(--doc-surface-2);color:var(--doc-accent);box-shadow:0 1px 3px rgba(0,0,0,.12);">Comfortable</span></sc-if>
         <sc-if value="{{ widthWide }}"><span onClick="{{ goWidthComfort }}" style="flex:1;text-align:center;padding:6px;border-radius:6px;font-size:13px;font-weight:600;color:var(--doc-muted);cursor:pointer;">Comfortable</span></sc-if>

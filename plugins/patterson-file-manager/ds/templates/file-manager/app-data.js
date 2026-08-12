@@ -10,7 +10,7 @@
       type: 'dir', name: 'my-skills', open: true, children: [
         {
           type: 'dir', name: 'brand-deck-builder', open: true, children: [
-            { type: 'file', name: 'SKILL.md', content: `---\nname: brand-deck-builder\ndescription: Build on-brand Patterson slide decks from an outline. Use when the user asks for a presentation, pitch, or executive readout in the Patterson visual system.\n---\n\n# Brand Deck Builder\n\nGenerate slide decks that follow the **Patterson Companies Design System** — navy structure, sky accents, Figtree type.\n\n## When to use\n\n- The user asks for a deck, presentation, or pitch\n- Output should carry Patterson brand voice and tokens\n\n## Workflow\n\n1. Gather the outline and audience.\n2. Pick a layout per slide (cover, section, bullets, stat, quote).\n3. Compose with the design-system deck template.\n4. Export to PPTX or PDF.\n\n> Draft this from the \`anthropics/skills\` pptx example — see the marketplace.` },
+            { type: 'file', name: 'SKILL.md', content: `---\nname: brand-deck-builder\ndescription: Build on-brand Patterson slide decks from an outline. Use when the user asks for a presentation, pitch, or executive readout in the Patterson visual system.\n---\n\n# Brand Deck Builder\n\nGenerate slide decks that follow the **Patterson Companies Design System** — navy structure, sky accents, Proxima Nova type.\n\n## When to use\n\n- The user asks for a deck, presentation, or pitch\n- Output should carry Patterson brand voice and tokens\n\n## Workflow\n\n1. Gather the outline and audience.\n2. Pick a layout per slide (cover, section, bullets, stat, quote).\n3. Compose with the design-system deck template.\n4. Export to PPTX or PDF.\n\n> Draft this from the \`anthropics/skills\` pptx example — see the marketplace.` },
             {
               type: 'dir', name: 'reference', open: false, children: [
                 { type: 'file', name: 'layouts.md', content: `# Deck Layouts\n\n- **Cover** — title, eyebrow, brand mark\n- **Section** — full-navy divider\n- **Bullets** — flush-left, max 5\n- **Stat** — one big number\n- **Quote** — serif pull quote` },
@@ -251,7 +251,7 @@
       description: 'Internal: the on-brand Patterson deck template (navy dividers, sky accents). Closest match for brand-deck-builder.',
       tags: ['deck', 'brand', 'template', 'patterson'],
       files: {
-        'SKILL.md': `---\nname: patterson-deck\ndescription: The Patterson-branded deck template — navy/sky, Figtree, section dividers.\n---\n\n# Patterson Deck Template\n\nUse the design-system deck starting point; keep 1-2 background colors max.`,
+        'SKILL.md': `---\nname: patterson-deck\ndescription: The Patterson-branded deck template — navy/sky, Proxima Nova, section dividers.\n---\n\n# Patterson Deck Template\n\nUse the design-system deck starting point; keep 1-2 background colors max.`,
       },
     },
     {

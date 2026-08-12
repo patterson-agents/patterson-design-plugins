@@ -10,7 +10,7 @@ Patterson Companies design-system core: brand tokens, fonts, logos, brand imager
 
 ## What this plugin ships
 
-Everything lives under `${CLAUDE_PLUGIN_ROOT}/ds/`, laid out exactly like the Patterson design-system source tree, so every relative reference inside the files (`../../styles.css`, `../../assets/brand/…`, `../../_ds_bundle.js`) resolves without edits.
+Everything lives under `${CLAUDE_PLUGIN_ROOT}/ds/`, laid out exactly like the Patterson design-system source tree, so every relative reference inside the files (`../../styles.css`, `../../assets/brand/…`, `../../components/components.css`) resolves without edits.
 
 ## Scaffolding workflow
 
@@ -29,8 +29,8 @@ Everything lives under `${CLAUDE_PLUGIN_ROOT}/ds/`, laid out exactly like the Pa
 
 - `ds/styles.css` + `ds/tokens/` — the CSS custom-property system (link `styles.css` only)
 - `ds/theme.json` — canonical machine-readable theme (Theme UI spec shape)
-- `ds/components/` — React primitives (Button, IconButton, Badge, Stat, Card, Input, Select, Checkbox, Radio, Switch, Alert, Tabs) as `.jsx` + `.d.ts` + per-component `*.prompt.md` usage guides
-- `ds/_ds_bundle.js` — compiled component runtime; exposes `window.PattersonCompaniesDesignSystem_1f7cbe`
+- `ds/components/components.css` — the component layer: Button, IconButton, Badge, Stat, Card, Alert, Tabs, Input, Select, Checkbox, Radio, Switch as plain CSS classes (`pat-` prefix), imported by `styles.css`. No JavaScript, no build step.
+- `ds/components/` — also holds the authored React sources (`.jsx`) plus `.d.ts` types and per-component `*.prompt.md` usage guides
 - `ds/integrations/` — tailwind.css (v4), tailwind.config.js (v3), uno.config.js, theme-ui.js, shadcn-theme.css + README
 - `ds/assets/brand/` — official logo lockups (white/navy/sky/square), wave background, photo band, value-prop art
 - `ds/assets/fonts/` — Proxima Nova woff2 (400/700/italic)
@@ -40,7 +40,8 @@ Everything lives under `${CLAUDE_PLUGIN_ROOT}/ds/`, laid out exactly like the Pa
 ## How to use it
 
 - **Production code:** pick the adapter in `ds/integrations/` that matches the stack (see its README) — every adapter carries the exact brand hexes. For plain CSS, link `ds/styles.css` and use the variables.
-- **React prototypes / static mocks:** load `ds/_ds_bundle.js` after React 18 UMD + Babel standalone; read components from `window.PattersonCompaniesDesignSystem_1f7cbe` .
+- **Static mocks / prototypes:** link `ds/styles.css` and use the classes directly — `<button class="pat-btn pat-btn--primary">Shop now</button>`. Nothing else to load.
+- **React:** the `.jsx` sources in `ds/components/` are available to import, but they are unbundled sources carrying pre-correction inline styling; prefer the CSS layer.
 - **Component API details:** read the sibling `*.prompt.md` next to each component before using it.
 - **Logos:** always use the bundled SVGs — never redraw the wave mark. White lockup on navy, navy lockup on white.
 - Read `ds/readme.md` in full before large design tasks — it is the authoritative guide.
@@ -49,8 +50,8 @@ Everything lives under `${CLAUDE_PLUGIN_ROOT}/ds/`, laid out exactly like the Pa
 
 - **Brand:** Patterson Companies, Inc. — oral (dental) & animal health distribution. Since 1877. Promise: *"Trusted Expertise. Unrivaled Support."*
 - **Colors:** Navy `#003767` (primary), Sky `#00A8E1` (accent, hovers, stats). Secondary blue `#147EC2`. Tertiary green `#7BC24D`, teal `#00817D`, purple `#522E91` — data/infographics only, never page chrome. Body gray `#58585B`, light gray `#ECECEC`.
-- **Type:** Proxima Nova (licensed; woff2 subset bundled), Figtree as free fallback. Bold navy headlines, tight tracking; cool-gray body at 1.6 leading; big sky-blue stats. UPPERCASE letter-spaced eyebrows.
-- **Shape:** Pill buttons (navy, shifts to sky on hover), 10px card radius, soft navy-tinted shadows, 3px sky focus ring.
+- **Type:** Proxima Nova, loaded from Adobe Fonts kit `uth1qfm` — never self-hosted; no font binaries and no embedded font declarations anywhere in the repo (Adobe's Terms of Use bar re-hosting Typekit payloads). Arial is the sanctioned substitute [BG25 p.25]. Navy headlines (Extrabold 800), tracking -10 [BG25 p.27]; body at 1.5 leading (BG25 p.27 allows 125-150%); big sky-blue stats. Eyebrows are teal `#00817D` and **sentence case** [DS20 p.16]. **Sentence case is mandatory** — all caps are barred from digital channels [BG25 p.25].
+- **Shape:** 5px corner radius on buttons, cards and inputs [BG25 p.57]; 46px control height, 30px horizontal button padding [BG25 p.57]; soft navy-tinted shadows [TBD: no elevation scale is published]; 3px sky focus ring.
 - **Voice:** Confident, warm, plain-spoken. "We" for Patterson, "you" for the customer. Short declarative sentences. Numbers as proof points. **Never use emoji.**
 - **Motion:** Restrained, 120–320ms, no bounces, no infinite loops.
 

@@ -2,12 +2,15 @@
   "$schema": "https://theme-ui.com/theme-spec",
   "$meta": {
     "name": "Patterson Companies Design System",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "brand": "Patterson Companies, Inc.",
     "promise": "Trusted Expertise. Unrivaled Support.",
     "namespace": "PattersonCompaniesDesignSystem_1f7cbe",
     "description": "Canonical, machine-readable record of the Patterson theme. Mirrors the CSS custom properties in tokens/*.css and is the single source the framework adapters in integrations/ are generated from. Shaped to the Theme UI theme spec (https://theme-ui.com/theme-spec) so it can be consumed directly by Theme UI, and mapped verbatim by the Tailwind v4, UnoCSS and shadcn/ui adapters.",
-    "note": "Edit tokens/*.css and this file together so they never drift — every adapter reads from these values. Colors are the exact Patterson brand hexes; do not re-derive or replace them."
+    "note": "Edit tokens/*.css and this file together so they never drift — every adapter reads from these values. Colors are the exact Patterson brand hexes; do not re-derive or replace them.",
+    "authoritativeSource": "Patterson Companies Brand Guide, VERSION 3.2025 (2025-04-08)",
+    "provenanceKeys": { "BG25": "Brand Guide 2025", "DS20": "DesignSystem_042120.pdf", "DPL": "Patterson Digital Pattern Library v5.7.2 production CSS", "TBD": "Patterson publishes no value — nothing has been invented" },
+    "caseRule": "Sentence case is mandatory (BG25 p.25, p.59). All caps are barred from digital channels. This reverses the 2022 guide."
   },
 
   "useCustomProperties": true,
@@ -19,13 +22,13 @@
     "primary": "#003767",
     "secondary": "#00A8E1",
     "accent": "#00A8E1",
-    "highlight": "#e5f6fc",
+    "highlight": "#BFE9F8",
     "muted": "#ECECEC",
-    "heading": "#1d1d20",
+    "heading": "#003767",
     "textStrong": "#003767",
-    "textMuted": "#7c7c80",
+    "textMuted": "#828284",
     "textInverse": "#FFFFFF",
-    "link": "#147EC2",
+    "link": "#147CBD",
     "linkHover": "#003767",
 
     "navy": "#003767",
@@ -39,42 +42,64 @@
     "teal": "#00817D",
     "purple": "#522E91",
 
-    "navyTints": { "80": "#335f85", "60": "#6687a4", "40": "#99afc2", "20": "#ccd7e1", "10": "#e5ebf0" },
-    "skyTints":  { "80": "#33b9e7", "60": "#66caed", "40": "#99dcf3", "20": "#ccedf9", "10": "#e5f6fc" },
+    "_tintNote": "BG25 p.24 prints an unlabelled tint ramp; sampling the vector swatches gives a uniform 75/50/25 over white for every palette colour. There is no 10/20/40/60/80 ramp in any Patterson source. [TBD: the step percentages themselves are not printed.]",
+    "navyTints":      { "75": "#40698D", "50": "#809BB3", "25": "#BFCDD9" },
+    "skyTints":       { "75": "#40BEE8", "50": "#80D4F0", "25": "#BFE9F8" },
+    "grayTints":      { "75": "#828284", "50": "#ACACAD", "25": "#D5D5D6" },
+    "blueTints":      { "75": "#4F9ED1", "50": "#8ABEE0", "25": "#C4DFF0" },
+    "blueLightTints": { "75": "#92DBF8", "50": "#B6E7FA", "25": "#DAF3FD" },
+    "greenTints":     { "75": "#9CD17A", "50": "#BDE0A6", "25": "#DEF0D2" },
+    "tealTints":      { "75": "#40A09E", "50": "#80C0BE", "25": "#BFE0DE" },
+    "purpleTints":    { "75": "#7D62AC", "50": "#A896C8", "25": "#D4CBE4" },
+
+    "digitalSky": "#269BCB",
+    "digitalLink": "#147CBD",
+    "digitalGreen": "#0CA50F",
+    "digitalTeal": "#008E8B",
+    "digitalPurple": "#512E91",
+    "digitalPurpleOnDark": "#9660F3",
+    "greyMedium": "#9B9B9B",
+    "greyLight": "#F8F8F8",
+    "navyDeep": "#001C34",
+    "rule": "#D8D8D8",
+    "fieldBorder": "#A8A9AC",
+    "disabledBg": "#F0F0F0",
 
     "gray": {
-      "ink": "#1d1d20",
-      "700": "#46464a",
+      "ink": "#003767",
+      "700": "#58585B",
       "600": "#58585B",
-      "500": "#7c7c80",
-      "400": "#a3a3a7",
-      "300": "#c9c9cc",
-      "200": "#e2e2e4",
+      "500": "#828284",
+      "400": "#9B9B9B",
+      "300": "#ACACAD",
+      "200": "#D5D5D6",
       "100": "#ECECEC",
-      "50":  "#f6f7f8"
+      "50":  "#F8F8F8"
     },
 
-    "success": "#00817D", "successBg": "#e5f2f1",
-    "info":    "#147EC2", "infoBg":    "#e7f1f9",
-    "warning": "#d98a00", "warningBg": "#fbf1df",
-    "danger":  "#c0392b", "dangerBg":  "#f8eae8",
+    "_statusNote": "DS20 p.37 names four message-box states but publishes no hexes; these are the shipped DPL values. [TBD: no status colours appear in BG25, and no per-status background tint is published anywhere — the *Bg entries point at the one documented digital background neutral #F8F8F8 (DS20 p.7) rather than at invented pastels.]",
+    "success": "#0CA50F", "successBg": "#F8F8F8",
+    "info":    "#147EC2", "infoBg":    "#F8F8F8",
+    "warning": "#F5A623", "warningBg": "#F8F8F8",
+    "danger":  "#D0021B", "dangerBg":  "#F8F8F8",
+    "urgent":  "#003767",
 
-    "border": "#e2e2e4",
-    "borderDefault": "#c9c9cc",
-    "borderStrong": "#a3a3a7",
+    "border": "#ECECEC",
+    "borderDefault": "#D8D8D8",
+    "borderStrong": "#A8A9AC",
     "borderBrand": "#00A8E1",
 
     "surfacePage": "#FFFFFF",
-    "surfaceSubtle": "#f6f7f8",
+    "surfaceSubtle": "#F8F8F8",
     "surfaceMuted": "#ECECEC",
     "surfaceBrand": "#003767",
     "surfaceBrandAlt": "#00A8E1"
   },
 
   "fonts": {
-    "body": "'proxima-nova', 'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-    "heading": "'proxima-nova', 'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-    "display": "'proxima-nova', 'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+    "body": "'proxima-nova', Arial, sans-serif",
+    "heading": "'proxima-nova', Arial, sans-serif",
+    "display": "'proxima-nova', Arial, sans-serif",
     "monospace": "'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace"
   },
 
@@ -91,6 +116,15 @@
   },
 
   "fontSizes": {
+    "_note": "dpl* entries are the sourced shipped web scale [DPL]. The clamp() entries are a layout convenience: [TBD] Patterson publishes no fluid type scale (BG25 p.27 specifies leading/tracking relationally, not absolute steps).",
+    "dplH1": "36px",
+    "dplH1Mobile": "24px",
+    "dplH2": "24px",
+    "dplH3": "18px",
+    "dplBody": "18px",
+    "eyebrow": "15px",
+    "cta": "15px",
+    "dplSmall": "13px",
     "xs": "0.75rem",
     "sm": "0.875rem",
     "body": "1rem",
@@ -105,15 +139,19 @@
   },
 
   "lineHeights": {
-    "tight": 1.05,
-    "snug": 1.2,
-    "heading": 1.15,
-    "body": 1.6,
-    "relaxed": 1.75
+    "printHeadline": 0.75,
+    "tight": 1.15,
+    "snug": 1.25,
+    "heading": 1.3,
+    "bodyMin": 1.25,
+    "body": 1.5,
+    "relaxed": 1.5,
+    "eyebrow": "19px",
+    "cta": 1.15
   },
 
   "letterSpacings": {
-    "tight": "-0.02em",
+    "tight": "-0.025em",
     "snug": "-0.01em",
     "normal": "0",
     "wide": "0.04em",
@@ -137,16 +175,16 @@
   },
 
   "sizes": {
-    "containerMax": "1240px",
+    "containerMax": "1300px",
     "containerText": "720px",
     "controlSm": "34px",
-    "controlMd": "44px",
+    "controlMd": "46px",
     "controlLg": "54px"
   },
 
   "radii": {
     "xs": "2px",
-    "sm": "4px",
+    "sm": "5px",
     "md": "6px",
     "lg": "10px",
     "xl": "16px",
@@ -166,7 +204,7 @@
     "lg": "0 12px 28px rgba(0, 55, 103, 0.12), 0 4px 10px rgba(0, 55, 103, 0.07)",
     "xl": "0 24px 48px rgba(0, 55, 103, 0.16)",
     "focus": "0 0 0 3px rgba(0, 168, 225, 0.45)",
-    "error": "0 0 0 3px rgba(192, 57, 43, 0.35)"
+    "error": "0 0 0 3px rgba(208, 2, 27, 0.35)"
   },
 
   "transitions": {
@@ -183,7 +221,7 @@
     "lead": { "fontSize": "lead", "lineHeight": "relaxed", "color": "text" },
     "body": { "fontSize": "body", "lineHeight": "body", "color": "text" },
     "muted": { "color": "textMuted" },
-    "eyebrow": { "fontSize": "xs", "fontWeight": "bold", "letterSpacing": "caps", "textTransform": "uppercase", "color": "sky" },
+    "eyebrow": { "fontSize": "eyebrow", "fontWeight": "bold", "lineHeight": "eyebrow", "letterSpacing": "normal", "textTransform": "none", "color": "teal" },
     "stat": { "fontFamily": "display", "fontSize": "stat", "fontWeight": "bold", "lineHeight": "tight", "letterSpacing": "tight", "color": "sky" }
   },
 
@@ -207,7 +245,7 @@
     "ghost": {
       "color": "navy", "bg": "transparent", "border": "2px solid", "borderColor": "transparent",
       "borderRadius": "pill", "fontFamily": "body", "fontWeight": "semibold", "cursor": "pointer",
-      "&:hover": { "bg": "navyTints.10" }
+      "&:hover": { "bg": "navyTints.25" }
     },
     "onDark": {
       "color": "navy", "bg": "white", "border": "2px solid", "borderColor": "white",
@@ -232,7 +270,7 @@
   "badges": {
     "navy":   { "color": "white", "bg": "navy", "borderRadius": "pill" },
     "sky":    { "color": "white", "bg": "sky", "borderRadius": "pill" },
-    "subtle": { "color": "navy", "bg": "navyTints.10", "borderRadius": "pill" },
+    "subtle": { "color": "navy", "bg": "navyTints.25", "borderRadius": "pill" },
     "success":{ "color": "success", "bg": "successBg", "borderRadius": "pill" },
     "info":   { "color": "info", "bg": "infoBg", "borderRadius": "pill" },
     "warning":{ "color": "warning", "bg": "warningBg", "borderRadius": "pill" },

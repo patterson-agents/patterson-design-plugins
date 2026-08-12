@@ -46,6 +46,6 @@ and dark themes update. See [Theming](/guides/theming/) for the full surface.
 
 :::note
 The real Patterson typeface, Proxima Nova, is an Adobe Fonts (Typekit) face. The
-starter ships the free Figtree/system fallback in the font stack; add your Typekit
+starter ships the `"proxima-nova", Arial, sans-serif` stack; add the Adobe Fonts kit `uth1qfm`
 embed to render Proxima Nova in production.
 :::

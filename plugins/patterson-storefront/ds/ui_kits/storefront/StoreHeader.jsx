@@ -27,7 +27,7 @@ function StoreHeader({ brand, cartCount, onAddDemo }) {
       <div className="pat-container" style={{ display: 'flex', alignItems: 'center', gap: 28, height: 84 }}>
         <a href="#" onClick={(e) => e.preventDefault()} style={{ display: 'inline-flex', alignItems: 'center', gap: 11, flex: 'none' }}>
           <img src="../../assets/brand/patterson-logo-navy.svg" alt="Patterson" style={{ height: 28, width: 'auto', display: 'block' }} />
-          <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--pat-sky)', borderLeft: '1px solid var(--border-default)', paddingLeft: 12 }}>{brand.sub}</span>
+          <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.14em', color: 'var(--pat-sky)', borderLeft: '1px solid var(--border-default)', paddingLeft: 12 }}>{brand.sub}</span>
         </a>
 
         {/* search */}

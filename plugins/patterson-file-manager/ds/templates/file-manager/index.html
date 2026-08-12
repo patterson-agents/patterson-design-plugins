@@ -17,7 +17,7 @@
   #root { height: 100vh; }
   a { color: var(--text-link); text-decoration: none; }
   a:hover { color: var(--text-link-hover); }
-  *::selection { background: var(--pat-sky-20); }
+  *::selection { background: var(--pat-sky-25); }
 
   /* =========================================================
      DARK THEME — override semantic + tint tokens only.
@@ -39,9 +39,9 @@
     --border-subtle:   #1d2a36;
     --border-default:  #2a3a48;
     --border-strong:   #3b4d5d;
-    --pat-navy-10:     rgba(255,255,255,0.06);
-    --pat-sky-10:      rgba(0,168,225,0.14);
-    --pat-sky-20:      rgba(0,168,225,0.24);
+    --pat-navy-25:     rgba(255,255,255,0.06);
+    --pat-sky-25:      rgba(0,168,225,0.14);
+    --pat-sky-25:      rgba(0,168,225,0.24);
     --pat-gray-50:     #0e1720;
     --pat-ink:         #e6eef6;
     --shadow-sm:       0 1px 2px rgba(0,0,0,0.5);
@@ -75,7 +75,7 @@
   /* mode switch */
   .modeswitch { display: flex; gap: 2px; padding: var(--space-3) var(--space-3) var(--space-2); }
   .modeswitch button { flex: 1; border: 0; background: transparent; padding: 7px 6px; border-radius: var(--radius-md); font: inherit; font-size: var(--fs-xs); font-weight: var(--fw-semibold); color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px; }
-  .modeswitch button:hover { background: var(--pat-navy-10); color: var(--text-heading); }
+  .modeswitch button:hover { background: var(--pat-navy-25); color: var(--text-heading); }
   .modeswitch button.active { background: var(--pat-navy); color: #fff; }
   .pane-sub { padding: 0 var(--space-4) var(--space-3); font-size: var(--fs-xs); color: var(--text-muted); }
 
@@ -86,12 +86,12 @@
   /* --- File tree (workspace) --- */
   .tree { padding: var(--space-1) var(--space-2) var(--space-6); }
   .tree-row { display: flex; align-items: center; gap: 7px; width: 100%; box-sizing: border-box; padding: 6px 8px; border: 0; background: transparent; border-radius: var(--radius-sm); cursor: pointer; font: inherit; font-size: var(--fs-sm); color: var(--text-body); text-align: left; }
-  .tree-row:hover { background: var(--pat-navy-10); }
-  .tree-row.active { background: var(--pat-sky-20); color: var(--text-strong); font-weight: var(--fw-semibold); }
+  .tree-row:hover { background: var(--pat-navy-25); }
+  .tree-row.active { background: var(--pat-sky-25); color: var(--text-strong); font-weight: var(--fw-semibold); }
   .tree-row.dir { color: var(--text-heading); font-weight: var(--fw-medium); }
   .tree-row .chev { transition: transform .15s ease; color: var(--text-muted); flex: none; }
   .tree-row .chev.open { transform: rotate(90deg); }
-  .tree-row .ico { flex: none; color: var(--pat-navy-60); }
+  .tree-row .ico { flex: none; color: var(--pat-navy-50); }
   .tree-row.active .ico { color: var(--pat-sky); }
   .tree-row .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .tree-children { position: relative; }
@@ -100,14 +100,14 @@
   /* --- GitHub Spaces-style source selector --- */
   .gh-tree { padding: 2px 6px 24px; }
   .gh-row { display: flex; align-items: center; gap: 6px; width: 100%; box-sizing: border-box; padding: 5px 6px; border: 0; background: transparent; border-radius: var(--radius-sm); cursor: pointer; font: inherit; font-size: var(--fs-sm); color: var(--text-body); text-align: left; }
-  .gh-row:hover { background: var(--pat-navy-10); }
+  .gh-row:hover { background: var(--pat-navy-25); }
   .gh-row.filesel { color: var(--text-strong); font-weight: var(--fw-semibold); }
   .gh-chev { flex: none; width: 14px; height: 14px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: transform .15s ease; }
   .gh-chev.open { transform: rotate(90deg); }
   .gh-chev.leaf { visibility: hidden; }
-  .gh-cb { flex: none; width: 16px; height: 16px; border: 1.5px solid var(--border-strong); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #fff; background: var(--surface-page); transition: background .12s, border-color .12s; }
+  .gh-cb { flex: none; width: 16px; height: 16px; border: 1.5px solid var(--border-strong); border-radius: 5px; display: flex; align-items: center; justify-content: center; color: #fff; background: var(--surface-page); transition: background .12s, border-color .12s; }
   .gh-cb.on, .gh-cb.partial { background: var(--pat-sky); border-color: var(--pat-sky); }
-  .gh-ico { flex: none; display: flex; color: var(--pat-navy-60); }
+  .gh-ico { flex: none; display: flex; color: var(--pat-navy-50); }
   .gh-row.org .gh-ico, .gh-row.repo .gh-ico { color: var(--text-strong); }
   .gh-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .gh-row.org .gh-name { font-weight: var(--fw-bold); color: var(--text-heading); }
@@ -122,7 +122,7 @@
   /* --- References --- */
   .refs { padding: var(--space-2) var(--space-3); display: flex; flex-direction: column; gap: 8px; }
   .ref { display: block; padding: 11px 12px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--surface-page); }
-  .ref:hover { border-color: var(--pat-sky-40); }
+  .ref:hover { border-color: var(--pat-sky-50); }
   .ref .rt { font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--text-heading); }
   .ref .rn { font-size: var(--fs-xs); color: var(--text-muted); margin-top: 2px; }
 
@@ -134,7 +134,7 @@
   .ed-tab .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--pat-sky); flex: none; }
   .ed-tab.gh .gtag { font-family: var(--font-mono); font-size: 10px; color: var(--pat-purple); }
   .ed-tab .x { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: var(--radius-sm); color: var(--text-muted); }
-  .ed-tab .x:hover { background: var(--pat-navy-10); color: var(--text-heading); }
+  .ed-tab .x:hover { background: var(--pat-navy-25); color: var(--text-heading); }
   .ed-toolbar { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) var(--space-4); border-bottom: 1px solid var(--border-subtle); }
   .ed-meta { margin-left: auto; display: flex; align-items: center; gap: var(--space-4); font-size: var(--fs-xs); color: var(--text-muted); font-family: var(--font-mono); }
   .ed-body { flex: 1; min-height: 0; overflow: hidden; display: flex; }
@@ -149,14 +149,14 @@
   .md-preview p { margin: 0 0 1em; max-width: 68ch; }
   .md-preview ul, .md-preview ol { margin: 0 0 1em; padding-left: 1.4em; max-width: 68ch; }
   .md-preview li { margin: .3em 0; }
-  .md-preview code { font-family: var(--font-mono); font-size: .88em; background: var(--pat-navy-10); color: var(--text-strong); padding: .12em .4em; border-radius: var(--radius-xs); }
+  .md-preview code { font-family: var(--font-mono); font-size: .88em; background: var(--pat-navy-25); color: var(--text-strong); padding: .12em .4em; border-radius: var(--radius-xs); }
   .md-preview pre.md-code { font-family: var(--font-mono); font-size: 13px; background: var(--pat-navy); color: #dbeafe; padding: 14px 16px; border-radius: var(--radius-md); overflow-x: auto; margin: 0 0 1.2em; max-width: 72ch; }
   .md-preview .md-fm { background: var(--pat-gray-50); border: 1px solid var(--border-subtle); border-left: 3px solid var(--pat-sky); border-radius: var(--radius-sm); padding: 10px 14px; margin: 0 0 1.4em; max-width: 72ch; }
-  .md-preview .md-fm-tag { font-size: 10px; text-transform: uppercase; letter-spacing: var(--ls-caps); color: var(--pat-sky); font-weight: var(--fw-bold); }
+  .md-preview .md-fm-tag { font-size: 10px; letter-spacing: var(--ls-caps); color: var(--pat-sky); font-weight: var(--fw-bold); }
   .md-preview .md-fm pre { font-family: var(--font-mono); font-size: 12.5px; color: var(--text-heading); margin: 6px 0 0; white-space: pre-wrap; }
   .md-preview blockquote { margin: 1em 0; padding: 4px 0 4px 18px; border-left: 3px solid var(--pat-sky); color: var(--text-heading); font-style: italic; }
   .md-preview hr { border: 0; border-top: 1px solid var(--border-subtle); margin: 1.8em 0; }
-  .md-preview a { color: var(--text-link); border-bottom: 1px solid var(--pat-sky-40); }
+  .md-preview a { color: var(--text-link); border-bottom: 1px solid var(--pat-sky-50); }
   .md-preview .md-table { border-collapse: collapse; width: 100%; max-width: 68ch; margin: 0 0 1.2em; font-size: var(--fs-sm); }
   .md-preview .md-table th { text-align: left; padding: 8px 12px; background: var(--pat-navy); color: #fff; font-weight: var(--fw-semibold); }
   .md-preview .md-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-subtle); }
@@ -175,19 +175,19 @@
   .msg .bubble :first-child { margin-top: 8px; } .msg .bubble :last-child { margin-bottom: 10px; }
   .msg .bubble h1,.msg .bubble h2,.msg .bubble h3 { font-size: var(--fs-sm); color: var(--text-heading); margin: 12px 0 6px; }
   .msg .bubble ul,.msg .bubble ol { padding-left: 1.2em; margin: 6px 0; }
-  .msg .bubble code { font-family: var(--font-mono); font-size: .85em; background: var(--pat-navy-10); color: var(--text-strong); padding: .1em .35em; border-radius: var(--radius-xs); }
+  .msg .bubble code { font-family: var(--font-mono); font-size: .85em; background: var(--pat-navy-25); color: var(--text-strong); padding: .1em .35em; border-radius: var(--radius-xs); }
   .msg.user .bubble code { background: rgba(255,255,255,0.18); color: #fff; }
   .typing { display: inline-flex; gap: 4px; padding: 4px 0; }
-  .typing span { width: 6px; height: 6px; border-radius: 50%; background: var(--pat-navy-40); animation: blink 1.2s infinite both; }
+  .typing span { width: 6px; height: 6px; border-radius: 50%; background: var(--pat-navy-50); animation: blink 1.2s infinite both; }
   .typing span:nth-child(2){animation-delay:.2s} .typing span:nth-child(3){animation-delay:.4s}
   @keyframes blink { 0%,80%,100%{opacity:.25} 40%{opacity:1} }
   .chat-compose { border-top: 1px solid var(--border-subtle); padding: var(--space-3); background: var(--surface-page); }
   .chat-inputrow { display: flex; align-items: flex-end; gap: 8px; background: var(--surface-subtle); border: 1px solid var(--border-default); border-radius: var(--radius-lg); padding: 6px 6px 6px 12px; }
-  .chat-inputrow:focus-within { border-color: var(--pat-sky); box-shadow: 0 0 0 3px var(--pat-sky-20); }
+  .chat-inputrow:focus-within { border-color: var(--pat-sky); box-shadow: 0 0 0 3px var(--pat-sky-25); }
   .chat-ta { flex: 1; border: 0; outline: 0; resize: none; background: transparent; font: inherit; font-size: var(--fs-sm); line-height: 1.5; color: var(--text-heading); padding: 6px 0; max-height: 120px; }
   .chat-hint { font-size: var(--fs-xs); color: var(--text-muted); margin: 8px 2px 0; text-align: center; }
   .chip { border: 1px solid var(--border-default); background: var(--surface-page); border-radius: var(--radius-pill); padding: 5px 11px; font-size: var(--fs-xs); font-weight: var(--fw-medium); color: var(--text-body); cursor: pointer; }
-  .chip:hover { border-color: var(--pat-sky); color: var(--text-strong); background: var(--pat-sky-10); }
+  .chip:hover { border-color: var(--pat-sky); color: var(--text-strong); background: var(--pat-sky-25); }
   .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 0; background: transparent; border-radius: var(--radius-md); color: rgba(255,255,255,0.85); cursor: pointer; }
   .icon-btn:hover { background: rgba(255,255,255,0.14); color: #fff; }
 
@@ -198,9 +198,9 @@
   .dlg-head h3 { margin: 0; font-size: var(--fs-h4); color: var(--text-heading); }
   .dlg-head p { margin: 6px 0 0; font-size: var(--fs-sm); color: var(--text-muted); }
   .dlg-body { padding: 0 var(--space-6) var(--space-5); }
-  .dlg-body label { display: block; font-size: var(--fs-xs); font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: var(--ls-caps); color: var(--text-muted); margin: 14px 0 6px; }
+  .dlg-body label { display: block; font-size: var(--fs-xs); font-weight: var(--fw-bold); letter-spacing: var(--ls-caps); color: var(--text-muted); margin: 14px 0 6px; }
   .dlg-body input, .dlg-body textarea { width: 100%; box-sizing: border-box; border: 1px solid var(--border-default); border-radius: var(--radius-md); padding: 10px 12px; font: inherit; font-size: var(--fs-sm); color: var(--text-heading); background: var(--surface-page); }
-  .dlg-body input:focus, .dlg-body textarea:focus { outline: 0; border-color: var(--pat-sky); box-shadow: 0 0 0 3px var(--pat-sky-20); }
+  .dlg-body input:focus, .dlg-body textarea:focus { outline: 0; border-color: var(--pat-sky); box-shadow: 0 0 0 3px var(--pat-sky-25); }
   .dlg-body textarea { resize: vertical; min-height: 88px; }
   .dlg-foot { display: flex; justify-content: flex-end; gap: 10px; padding: var(--space-4) var(--space-6); border-top: 1px solid var(--border-subtle); background: var(--pat-gray-50); }
 </style>
@@ -303,9 +303,60 @@
     );
   }
 
+  /* ------------------------------------------------------------------
+     Patterson components, as thin wrappers over ds/components/components.css.
+     This template used to read a compiled React runtime from
+     window.PattersonCompaniesDesignSystem_1f7cbe; that bundle was removed in
+     favour of the CSS component layer, which ds-base.js loads via styles.css.
+     These wrappers keep the template's React authoring style while the styling
+     comes entirely from the (brand-corrected, provenance-cited) CSS.
+
+     NOTE: `variant="primary"` is now Patterson sky [BG25 p.57], not navy. The
+     old runtime shipped navy-by-default, which no Patterson source supports —
+     see the conflict note at the top of components/components.css. Use
+     `variant="navy"` for the navy fill ([DPL] .button--dark).
+     ------------------------------------------------------------------ */
+  const BTN_VARIANT = { primary: 'primary', sky: 'sky', navy: 'navy', outline: 'outline',
+                        secondary: 'secondary', ghost: 'ghost', tertiary: 'tertiary', onDark: 'on-dark' };
+
+  function Button({ variant = 'primary', size = 'md', fullWidth, iconLeft, iconRight, children, className = '', ...rest }) {
+    const cls = ['pat-btn', 'pat-btn--' + (BTN_VARIANT[variant] || 'primary'), 'pat-btn--' + size,
+                 fullWidth ? 'pat-btn--full' : '', className].filter(Boolean).join(' ');
+    return (
+      <button type="button" className={cls} {...rest}>
+        {iconLeft && <span className="pat-btn__icon">{iconLeft}</span>}
+        {children}
+        {iconRight && <span className="pat-btn__icon">{iconRight}</span>}
+      </button>
+    );
+  }
+
+  function IconButton({ variant = 'ghost', size = 'md', label, children, className = '', ...rest }) {
+    const cls = ['pat-icon-btn', 'pat-icon-btn--' + variant, 'pat-icon-btn--' + size, className].filter(Boolean).join(' ');
+    return <button type="button" aria-label={label} className={cls} {...rest}>{children}</button>;
+  }
+
+  function Badge({ tone = 'navy', solid, children, className = '', ...rest }) {
+    const cls = ['pat-badge', 'pat-badge--' + tone, solid ? 'pat-badge--solid' : '', className].filter(Boolean).join(' ');
+    return <span className={cls} {...rest}>{children}</span>;
+  }
+
+  function Tabs({ tabs = [], value, onChange, className = '', ...rest }) {
+    return (
+      <div className={['pat-tabs__list', className].filter(Boolean).join(' ')} role="tablist" {...rest}>
+        {tabs.map((t) => {
+          const val = typeof t === 'string' ? t : t.value;
+          const lbl = typeof t === 'string' ? t : t.label;
+          return (
+            <button key={val} type="button" role="tab" className="pat-tabs__trigger"
+              aria-selected={value === val} onClick={() => onChange && onChange(val)}>{lbl}</button>
+          );
+        })}
+      </div>
+    );
+  }
+
   function App() {
-    const DS = window.PattersonCompaniesDesignSystem_1f7cbe;
-    const { Button, IconButton, Badge, Tabs } = DS;
     const S = window.Studio;
     const orgMeta = {}; S.ORGS.forEach((o) => { orgMeta[o.login] = o; });
 
@@ -626,7 +677,7 @@
           <div className="ed-tabs">
             {openTabs.map((t) => (
               <div key={t.key} className={"ed-tab" + (t.key === activeKey ? " active" : "") + (t.gh ? " gh" : "")} onClick={() => setActiveKey(t.key)}>
-                {t.gh ? <span className="gtag">gh</span> : (dirty[t.key] ? <span className="dot" /> : <I.file style={{ width: 14, height: 14, color: 'var(--pat-navy-40)' }} />)}
+                {t.gh ? <span className="gtag">gh</span> : (dirty[t.key] ? <span className="dot" /> : <I.file style={{ width: 14, height: 14, color: 'var(--pat-navy-50)' }} />)}
                 <span>{t.name}</span>
                 <span className="x" onClick={(e) => closeTab(t.key, e)}><I.close /></span>
               </div>
@@ -654,7 +705,7 @@
             </>
           ) : (
             <div style={{ flex: 1, display: 'grid', placeItems: 'center', color: 'var(--text-muted)' }}>
-              <div style={{ textAlign: 'center' }}><I.file style={{ width: 40, height: 40, color: 'var(--pat-navy-40)' }} /><p style={{ marginTop: 12, fontSize: 'var(--fs-sm)' }}>Open a file, or <b>Plan a skill</b> to get started.</p></div>
+              <div style={{ textAlign: 'center' }}><I.file style={{ width: 40, height: 40, color: 'var(--pat-navy-50)' }} /><p style={{ marginTop: 12, fontSize: 'var(--fs-sm)' }}>Open a file, or <b>Plan a skill</b> to get started.</p></div>
             </div>
           )}
         </main>
@@ -692,13 +743,12 @@
           </div>
         </aside>
 
-        {dialog && <Dialog dialog={dialog} setDialog={setDialog} runPlan={runPlan} runImport={runImport} selCount={selCount} selMap={selMap} S={S} DS={DS} />}
+        {dialog && <Dialog dialog={dialog} setDialog={setDialog} runPlan={runPlan} runImport={runImport} selCount={selCount} selMap={selMap} S={S} />}
       </div>
     );
   }
 
-  function Dialog({ dialog, setDialog, runPlan, runImport, selCount, selMap, S, DS }) {
-    const { Button } = DS;
+  function Dialog({ dialog, setDialog, runPlan, runImport, selCount, selMap, S }) {
     const [brief, setBrief] = useState(dialog.brief || '');
     const [slug, setSlug] = useState(dialog.slug || '');
     const close = () => setDialog(null);
@@ -747,7 +797,7 @@
   }
 
   function mount() {
-    if (!window.PattersonCompaniesDesignSystem_1f7cbe || !window.PAT_TREE || !window.Studio) return void setTimeout(mount, 60);
+    if (!window.PAT_TREE || !window.Studio) return void setTimeout(mount, 60);
     ReactDOM.createRoot(document.getElementById('root')).render(<App />);
   }
   mount();

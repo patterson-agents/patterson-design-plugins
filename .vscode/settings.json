@@ -19,11 +19,5 @@
   "markdown.validate.enabled": true,
   "livePreview.defaultPreviewPath": "/docs/index.html",
   "livePreview.portNumber": 3000,
-  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
-  "search.exclude": {
-    "**/ds/_ds_bundle.js": true
-  },
-  "files.readonlyInclude": {
-    "**/ds/_ds_bundle.js": true
-  }
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true
 }

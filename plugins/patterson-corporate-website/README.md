@@ -50,7 +50,7 @@ The command copies `${CLAUDE_PLUGIN_ROOT}/ds` into your project as `./patterson`
 
 ```text
 ds/
-├── styles.css · tokens/ · assets/{brand,fonts}/ · _ds_bundle.js
+├── styles.css · tokens/ · components/ · assets/{brand,fonts}/
 └── ui_kits/corporate-website/
     ├── index.html          # shell — mounts the screens in order
     ├── Header.jsx · Footer.jsx
@@ -92,4 +92,4 @@ Open [`ds/ui_kits/corporate-website/index.html`](ds/ui_kits/corporate-website/in
 
 ## Brand quick reference
 
-Navy `#003767` · Sky `#00A8E1` · body gray `#58585B` — always via `var(--pat-*)` tokens, never raw hexes. Proxima Nova (Figtree fallback). Pill buttons (navy → sky on hover), 10px cards, navy-tinted shadows, sky focus ring. Voice: confident, plain-spoken, “we/you”, numbers as proof. **No emoji.** Full guide: [`patterson-brand`](../patterson-brand/) → `ds/readme.md`.
+Navy `#003767` · Sky `#00A8E1` · body gray `#58585B` — always via `var(--pat-*)` tokens, never raw hexes. Proxima Nova from Adobe Fonts kit `uth1qfm` (Arial substitute; no self-hosted files). 5px radius [BG25 p.57], 46px controls [BG25 p.57], sky focus ring. Sentence case everywhere [BG25 p.25]. Voice: confident, plain-spoken, “we/you”, numbers as proof. **No emoji.** Full guide: [`patterson-brand`](../patterson-brand/) → `ds/readme.md`.

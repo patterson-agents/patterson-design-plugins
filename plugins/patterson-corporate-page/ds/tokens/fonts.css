@@ -1,46 +1,52 @@
 /* ============================================================
    Patterson Companies — Webfonts
    ------------------------------------------------------------
-   BRAND FONT: **proxima-nova** (Adobe Fonts / Typekit) — the exact face
-   pattersondental.com & pattersonvet.com render, from kit `rul6mjk`.
-   font-family on the live sites: proxima-nova, Arial, sans-serif.
+   BRAND FONT: proxima-nova, delivered by Adobe Fonts (Typekit).
+   Production stack, verbatim from the live Patterson sites:
+       proxima-nova, Arial, sans-serif
 
-   Self-hosted here from the licensed Typekit files supplied by the brand team.
-   Weights were verified by canvas advance-width measurement:
-     - proxima-nova-400.woff2     normal 400  (regular)
-     - proxima-nova-700.woff2     normal 700  (bold — ~4% wider)
-     - proxima-nova-italic.woff2  italic 400
-   Bold-italic is synthesized by the browser from the 700 face.
+   KIT: uth1qfm  — serves the full weight range the brand requires:
+       400 / 400i · 500 / 500i · 600 / 600i · 700 / 700i · 800 / 800i
 
-   NOTE: these are licensed Adobe Fonts binaries, provided by the user for use
-   within this brand's properties. FALLBACK is "Figtree" (closest free Google
-   match) → system sans, used only if a face fails to load. Do NOT alias a
-   different family to the 'proxima-nova' name.
+   Weight usage per the 2025 Brand Guide (p.25):
+       800 Extrabold  titles and headlines
+       700 Bold       calls to action
+       600 Semibold   subheads
+       400 Regular    body copy
+
+   ------------------------------------------------------------
+   DO NOT self-host these files.
+
+   Adobe's Terms of Use do not permit re-hosting Typekit payloads. Font
+   binaries previously committed under assets/fonts/ were byte-identical to
+   Adobe's CDN payload and have been removed. Load fonts from the kit only.
+
+   Kit uth1qfm supersedes the older pattersoncompanies.com kit, which serves
+   ONLY 400/400i/700/700i and therefore cannot render Semibold subheads or
+   Extrabold headlines. uth1qfm is the only kit this design system loads.
+
+   For OfficeSuite (Outlook, PowerPoint, Teams, SharePoint) the brand
+   substitute is Arial — see --font-office below.
    ============================================================ */
 
-/* Fallback display sans + monospace (must precede @font-face per CSS spec) */
-@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url("https://use.typekit.net/uth1qfm.css");
 
-@font-face {
-  font-family: 'proxima-nova';
-  src: url('../assets/fonts/proxima-nova-400.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+:root {
+  /* Primary brand stack — proxima-nova with Arial as the substitute face. */
+  --font-sans: "proxima-nova", Arial, sans-serif;
 
-@font-face {
-  font-family: 'proxima-nova';
-  src: url('../assets/fonts/proxima-nova-700.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+  /* OfficeSuite substitute, per the 2025 Brand Guide. */
+  --font-office: Arial, Helvetica, sans-serif;
 
-@font-face {
-  font-family: 'proxima-nova';
-  src: url('../assets/fonts/proxima-nova-italic.woff2') format('woff2');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
+  /* Monospace is not specified by any Patterson brand source.
+     [TBD: no monospace face is defined in the 2025 Brand Guide or the
+      2020 design system. This is a neutral system stack, not a brand value.] */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Weight scale — all five are available from kit uth1qfm. */
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;  /* subheads */
+  --fw-bold:     700;  /* calls to action */
+  --fw-extrabold:800;  /* titles and headlines */
 }

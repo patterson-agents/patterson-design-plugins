@@ -7,8 +7,8 @@
    Reference: https://tutorialkit.dev/reference/theming
    Values are taken verbatim from the Patterson design system
    (tokens/colors.css, effects.css) so the platform stays on brand:
-     navy  #003767   sky   #00A8E1   ink   #1d1d20
-     blue  #147EC2   teal  #00817D   green #7BC24D   amber #d98a00   red #c0392b
+     navy  #003767   sky   #00A8E1   ink   #003767
+     blue  #147EC2   teal  #00817D   green #7BC24D   amber #F5A623   red #D0021B
 
    Themes (set `data-theme` on <html>):
      light        — Patterson corporate light (default)
@@ -21,13 +21,13 @@
 
 /* --- Typography supplement ------------------------------------
    TutorialKit exposes no font token, so we set the family directly.
-   proxima-nova is the licensed brand face (add your Adobe Fonts/Typekit
-   embed to render it); Figtree is the free fallback, IBM Plex Mono the
-   code face. Editor/terminal keep their own monospace. */
-@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+   proxima-nova is the licensed brand face [BG25 p.25], served by Adobe Fonts
+   kit uth1qfm (loaded by ds/tokens/fonts.css — never self-hosted). Arial is
+   the sanctioned substitute [BG25 p.25]. Editor/terminal keep their own
+   monospace; no monospace face is specified by any Patterson source [TBD]. */
 
 :root {
-  --tk-font-sans: 'proxima-nova', 'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --tk-font-sans: 'proxima-nova', Arial, sans-serif;
   --tk-font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 }
 html,
@@ -43,25 +43,25 @@ body {
 :root[data-theme='light'] {
   /* --- Core: backgrounds ---------------------------------- */
   --tk-background-primary: #ffffff;
-  --tk-background-secondary: #f6f7f8;
-  --tk-background-active: #e5ebf0;            /* navy-10 */
-  --tk-background-active-secondary: #ccedf9;  /* sky-20  */
+  --tk-background-secondary: #F8F8F8;
+  --tk-background-active: #BFCDD9;            /* navy 25% tint */
+  --tk-background-active-secondary: #BFE9F8;  /* sky 25% tint */
   --tk-background-brighter: #ffffff;
   --tk-background-accent: #00a8e1;            /* sky */
-  --tk-background-accent-secondary: #e5f6fc;  /* sky-10 */
+  --tk-background-accent-secondary: #BFE9F8;  /* sky 25% tint */
   --tk-background-accent-active: #003767;     /* navy */
-  --tk-background-positive: #e5f2f1;
-  --tk-background-warning: #fbf1df;
-  --tk-background-negative: #f8eae8;
-  --tk-background-info: #e7f1f9;
-  --tk-background-tip: #e5f6fc;
+  --tk-background-positive: #F8F8F8;
+  --tk-background-warning: #F8F8F8;
+  --tk-background-negative: #F8F8F8;
+  --tk-background-info: #F8F8F8;
+  --tk-background-tip: #BFE9F8;
 
   /* --- Core: text ----------------------------------------- */
-  --tk-text-primary: #1d1d20;                 /* ink */
+  --tk-text-primary: #003767;                 /* navy — headings [DPL] */
   --tk-text-primary-inverted: #ffffff;
-  --tk-text-secondary: #7c7c80;               /* gray-500 */
-  --tk-text-secondary-inverted: #ccd7e1;
-  --tk-text-disabled: #a3a3a7;                /* gray-400 */
+  --tk-text-secondary: #828284;               /* gray-500 */
+  --tk-text-secondary-inverted: #BFCDD9;
+  --tk-text-disabled: #9B9B9B;                /* gray-400 */
   --tk-text-body: #58585b;                    /* gray-600 */
   --tk-text-heading: #003767;                 /* navy headings */
   --tk-text-active: #003767;
@@ -73,28 +73,28 @@ body {
   --tk-text-tip: #0e6a97;
 
   /* --- Core: borders -------------------------------------- */
-  --tk-border-primary: #e2e2e4;               /* gray-200 */
-  --tk-border-secondary: #c9c9cc;             /* gray-300 */
+  --tk-border-primary: #D5D5D6;               /* gray-200 */
+  --tk-border-secondary: #ACACAD;             /* gray-300 */
   --tk-border-brighter: #ececec;
   --tk-border-accent: #00a8e1;
   --tk-border-positive: #00817d;
-  --tk-border-warning: #d98a00;
-  --tk-border-negative: #c0392b;
+  --tk-border-warning: #F5A623;
+  --tk-border-negative: #D0021B;
   --tk-border-info: #147ec2;
   --tk-border-tip: #00a8e1;
 
   /* --- Core: terminal (a Patterson-tuned ANSI palette on a
      navy-tinted dark terminal, used in every mode) ---------- */
-  --tk-terminal-foreground: #e2e2e4;
+  --tk-terminal-foreground: #D5D5D6;
   --tk-terminal-selection-background: rgba(0, 168, 225, 0.30);
-  --tk-terminal-black: #1d1d20;
-  --tk-terminal-red: #c0392b;
+  --tk-terminal-black: #003767;
+  --tk-terminal-red: #D0021B;
   --tk-terminal-green: #7bc24d;
-  --tk-terminal-yellow: #d98a00;
+  --tk-terminal-yellow: #F5A623;
   --tk-terminal-blue: #147ec2;
   --tk-terminal-magenta: #522e91;
   --tk-terminal-cyan: #00a8e1;
-  --tk-terminal-white: #e2e2e4;
+  --tk-terminal-white: #D5D5D6;
   --tk-terminal-brightBlack: #58585b;
   --tk-terminal-brightRed: #e05a4d;
   --tk-terminal-brightGreen: #93d16a;
@@ -106,7 +106,7 @@ body {
 
   /* --- Elements: app -------------------------------------- */
   --tk-elements-app-backgroundColor: #ffffff;
-  --tk-elements-app-borderColor: #e2e2e4;
+  --tk-elements-app-borderColor: #D5D5D6;
   --tk-elements-app-textColor: #58585b;
 
   /* --- Elements: links ------------------------------------ */
@@ -125,7 +125,7 @@ body {
 
   /* --- Elements: secondary button (outlined navy) --------- */
   --tk-elements-secondaryButton-backgroundColor: transparent;
-  --tk-elements-secondaryButton-backgroundColorHover: #e5ebf0;
+  --tk-elements-secondaryButton-backgroundColorHover: #BFCDD9;
   --tk-elements-secondaryButton-textColor: #003767;
   --tk-elements-secondaryButton-textColorHover: #003767;
   --tk-elements-secondaryButton-iconColor: #003767;
@@ -149,66 +149,66 @@ body {
   --tk-elements-topBar-logo-colorHover: #00a8e1;
 
   /* --- Elements: previews --------------------------------- */
-  --tk-elements-previews-borderColor: #e2e2e4;
+  --tk-elements-previews-borderColor: #D5D5D6;
 
   /* --- Elements: panels ----------------------------------- */
   --tk-elements-panel-backgroundColor: #ffffff;
   --tk-elements-panel-textColor: #58585b;
-  --tk-elements-panel-header-backgroundColor: #f6f7f8;
+  --tk-elements-panel-header-backgroundColor: #F8F8F8;
   --tk-elements-panel-header-textColor: #003767;
   --tk-elements-panel-header-iconColor: #58585b;
 
   --tk-elements-panel-headerButton-backgroundColor: transparent;
-  --tk-elements-panel-headerButton-backgroundColorHover: #e5ebf0;
+  --tk-elements-panel-headerButton-backgroundColorHover: #BFCDD9;
   --tk-elements-panel-headerButton-textColor: #58585b;
   --tk-elements-panel-headerButton-textColorHover: #003767;
   --tk-elements-panel-headerButton-iconColor: #58585b;
   --tk-elements-panel-headerButton-iconColorHover: #003767;
 
-  --tk-elements-panel-headerTab-backgroundColor: #f6f7f8;
-  --tk-elements-panel-headerTab-backgroundColorHover: #e5ebf0;
+  --tk-elements-panel-headerTab-backgroundColor: #F8F8F8;
+  --tk-elements-panel-headerTab-backgroundColorHover: #BFCDD9;
   --tk-elements-panel-headerTab-backgroundColorActive: #ffffff;
-  --tk-elements-panel-headerTab-textColor: #7c7c80;
+  --tk-elements-panel-headerTab-textColor: #828284;
   --tk-elements-panel-headerTab-textColorHover: #003767;
   --tk-elements-panel-headerTab-textColorActive: #003767;
-  --tk-elements-panel-headerTab-borderColor: #e2e2e4;
-  --tk-elements-panel-headerTab-borderColorHover: #ccd7e1;
+  --tk-elements-panel-headerTab-borderColor: #D5D5D6;
+  --tk-elements-panel-headerTab-borderColorHover: #BFCDD9;
   --tk-elements-panel-headerTab-borderColorActive: #00a8e1;
-  --tk-elements-panel-headerTab-iconColor: #7c7c80;
+  --tk-elements-panel-headerTab-iconColor: #828284;
   --tk-elements-panel-headerTab-iconColorHover: #003767;
   --tk-elements-panel-headerTab-iconColorActive: #00a8e1;
 
   /* --- Elements: file tree -------------------------------- */
-  --tk-elements-fileTree-backgroundColor: #f6f7f8;
-  --tk-elements-fileTree-backgroundColorHover: #e5ebf0;
+  --tk-elements-fileTree-backgroundColor: #F8F8F8;
+  --tk-elements-fileTree-backgroundColorHover: #BFCDD9;
   --tk-elements-fileTree-textColor: #58585b;
   --tk-elements-fileTree-textColorHover: #003767;
-  --tk-elements-fileTree-iconColor: #7c7c80;
+  --tk-elements-fileTree-iconColor: #828284;
   --tk-elements-fileTree-iconColorHover: #003767;
 
   --tk-elements-fileTree-file-backgroundColor: transparent;
-  --tk-elements-fileTree-file-backgroundColorHover: #e5ebf0;
-  --tk-elements-fileTree-file-backgroundColorSelected: #ccedf9;
+  --tk-elements-fileTree-file-backgroundColorHover: #BFCDD9;
+  --tk-elements-fileTree-file-backgroundColorSelected: #BFE9F8;
   --tk-elements-fileTree-file-textColor: #58585b;
-  --tk-elements-fileTree-file-textColorHover: #1d1d20;
+  --tk-elements-fileTree-file-textColorHover: #003767;
   --tk-elements-fileTree-file-textColorSelected: #003767;
-  --tk-elements-fileTree-file-iconColor: #7c7c80;
+  --tk-elements-fileTree-file-iconColor: #828284;
   --tk-elements-fileTree-file-iconColorHover: #003767;
   --tk-elements-fileTree-file-iconColorSelected: #00a8e1;
 
   --tk-elements-fileTree-folder-backgroundColor: transparent;
-  --tk-elements-fileTree-folder-backgroundColorHover: #e5ebf0;
+  --tk-elements-fileTree-folder-backgroundColorHover: #BFCDD9;
   --tk-elements-fileTree-folder-textColor: #58585b;
   --tk-elements-fileTree-folder-textColorHover: #003767;
-  --tk-elements-fileTree-folder-iconColor: #7c7c80;
+  --tk-elements-fileTree-folder-iconColor: #828284;
   --tk-elements-fileTree-folder-iconColorHover: #00a8e1;
 
   /* --- Elements: navigation card -------------------------- */
   --tk-elements-navCard-backgroundColor: #ffffff;
-  --tk-elements-navCard-backgroundColorHover: #f6f7f8;
+  --tk-elements-navCard-backgroundColorHover: #F8F8F8;
   --tk-elements-navCard-textColor: #003767;
   --tk-elements-navCard-textColorHover: #003767;
-  --tk-elements-navCard-borderColor: #e2e2e4;
+  --tk-elements-navCard-borderColor: #D5D5D6;
   --tk-elements-navCard-borderColorHover: #00a8e1;
   --tk-elements-navCard-iconColor: #00a8e1;
   --tk-elements-navCard-iconColorHover: #003767;
@@ -236,76 +236,76 @@ body {
 
   /* --- Elements: breadcrumbs — dropdown ------------------- */
   --tk-elements-breadcrumbs-dropdown-backgroundColor: #ffffff;
-  --tk-elements-breadcrumbs-dropdown-borderColor: #e2e2e4;
+  --tk-elements-breadcrumbs-dropdown-borderColor: #D5D5D6;
   --tk-elements-breadcrumbs-dropdown-textColor: #58585b;
   --tk-elements-breadcrumbs-dropdown-textColorHover: #003767;
   --tk-elements-breadcrumbs-dropdown-accordionTextColor: #58585b;
   --tk-elements-breadcrumbs-dropdown-accordionTextColorSelected: #003767;
   --tk-elements-breadcrumbs-dropdown-accordionTextColorHover: #003767;
-  --tk-elements-breadcrumbs-dropdown-accordionIconColor: #7c7c80;
+  --tk-elements-breadcrumbs-dropdown-accordionIconColor: #828284;
   --tk-elements-breadcrumbs-dropdown-accordionIconColorSelected: #00a8e1;
   --tk-elements-breadcrumbs-dropdown-accordionIconColorHover: #003767;
   --tk-elements-breadcrumbs-dropdown-lessonBackgroundColor: #ffffff;
-  --tk-elements-breadcrumbs-dropdown-lessonBackgroundColorSelected: #ccedf9;
+  --tk-elements-breadcrumbs-dropdown-lessonBackgroundColorSelected: #BFE9F8;
   --tk-elements-breadcrumbs-dropdown-lessonTextColor: #58585b;
   --tk-elements-breadcrumbs-dropdown-lessonTextColorSelected: #003767;
   --tk-elements-breadcrumbs-dropdown-lessonTextColorHover: #003767;
 
   /* --- Elements: editor ----------------------------------- */
-  --tk-elements-editor-textColor: #1d1d20;
+  --tk-elements-editor-textColor: #003767;
   --tk-elements-editor-backgroundColor: #ffffff;
-  --tk-elements-editor-activeLineBackgroundColor: #f6f7f8;
+  --tk-elements-editor-activeLineBackgroundColor: #F8F8F8;
   --tk-elements-editor-cursorColor: #00a8e1;
-  --tk-elements-editor-matchingBracketBackgroundColor: #ccedf9;
-  --tk-elements-editor-panels-borderColor: #e2e2e4;
+  --tk-elements-editor-matchingBracketBackgroundColor: #BFE9F8;
+  --tk-elements-editor-panels-borderColor: #D5D5D6;
   --tk-elements-editor-selection-backgroundColor: #00a8e1;
   --tk-elements-editor-selection-backgroundOpacity: 0.20;
-  --tk-elements-editor-selection-inactiveBackgroundColor: #99afc2;
+  --tk-elements-editor-selection-inactiveBackgroundColor: #809BB3;
   --tk-elements-editor-selection-inactiveBackgroundOpacity: 0.20;
 
-  --tk-elements-editor-gutter-textColor: #a3a3a7;
+  --tk-elements-editor-gutter-textColor: #9B9B9B;
   --tk-elements-editor-gutter-backgroundColor: #ffffff;
   --tk-elements-editor-gutter-activeLineTextColor: #003767;
 
-  --tk-elements-editor-foldGutter-textColor: #a3a3a7;
+  --tk-elements-editor-foldGutter-textColor: #9B9B9B;
   --tk-elements-editor-foldGutter-textColorHover: #003767;
 
-  --tk-elements-editor-search-textColor: #1d1d20;
-  --tk-elements-editor-search-backgroundColor: #99dcf3;
+  --tk-elements-editor-search-textColor: #003767;
+  --tk-elements-editor-search-backgroundColor: #80D4F0;
   --tk-elements-editor-search-closeButton-textColor: #58585b;
   --tk-elements-editor-search-closeButton-textColorHover: #003767;
   --tk-elements-editor-search-closeButton-backgroundColor: transparent;
-  --tk-elements-editor-search-closeButton-backgroundColorHover: #e5ebf0;
+  --tk-elements-editor-search-closeButton-backgroundColorHover: #BFCDD9;
   --tk-elements-editor-search-button-textColor: #003767;
   --tk-elements-editor-search-button-textColorHover: #003767;
-  --tk-elements-editor-search-button-backgroundColor: #f6f7f8;
-  --tk-elements-editor-search-button-backgroundColorHover: #e5ebf0;
-  --tk-elements-editor-search-button-borderColor: #e2e2e4;
-  --tk-elements-editor-search-button-borderColorHover: #ccd7e1;
+  --tk-elements-editor-search-button-backgroundColor: #F8F8F8;
+  --tk-elements-editor-search-button-backgroundColorHover: #BFCDD9;
+  --tk-elements-editor-search-button-borderColor: #D5D5D6;
+  --tk-elements-editor-search-button-borderColorHover: #BFCDD9;
   --tk-elements-editor-search-button-borderColorFocused: #00a8e1;
   --tk-elements-editor-search-input-backgroundColor: #ffffff;
-  --tk-elements-editor-search-input-borderColor: #e2e2e4;
+  --tk-elements-editor-search-input-borderColor: #D5D5D6;
   --tk-elements-editor-search-input-borderColorFocused: #00a8e1;
 
   --tk-elements-editor-tooltip-textColor: #58585b;
   --tk-elements-editor-tooltip-textColorSelected: #ffffff;
   --tk-elements-editor-tooltip-backgroundColor: #ffffff;
   --tk-elements-editor-tooltip-backgroundColorSelected: #003767;
-  --tk-elements-editor-tooltip-borderColor: #e2e2e4;
+  --tk-elements-editor-tooltip-borderColor: #D5D5D6;
 
   /* --- Elements: terminal (navy-tinted dark surface) ------ */
   --tk-elements-terminal-backgroundColor: #002440;
-  --tk-elements-terminal-textColor: #e2e2e4;
+  --tk-elements-terminal-textColor: #D5D5D6;
   --tk-elements-terminal-cursorColor: #00a8e1;
   --tk-elements-terminal-selection-backgroundColor: rgba(0, 168, 225, 0.30);
-  --tk-elements-terminal-color-black: #1d1d20;
-  --tk-elements-terminal-color-red: #c0392b;
+  --tk-elements-terminal-color-black: #003767;
+  --tk-elements-terminal-color-red: #D0021B;
   --tk-elements-terminal-color-green: #7bc24d;
-  --tk-elements-terminal-color-yellow: #d98a00;
+  --tk-elements-terminal-color-yellow: #F5A623;
   --tk-elements-terminal-color-blue: #147ec2;
   --tk-elements-terminal-color-magenta: #522e91;
   --tk-elements-terminal-color-cyan: #00a8e1;
-  --tk-elements-terminal-color-white: #e2e2e4;
+  --tk-elements-terminal-color-white: #D5D5D6;
   --tk-elements-terminal-color-brightBlack: #58585b;
   --tk-elements-terminal-color-brightRed: #e05a4d;
   --tk-elements-terminal-color-brightGreen: #93d16a;
@@ -317,15 +317,15 @@ body {
 
   /* --- Elements: callouts --------------------------------- */
   /* tip → sky */
-  --tk-elements-callouts-tip-backgroundColor: #e5f6fc;
+  --tk-elements-callouts-tip-backgroundColor: #BFE9F8;
   --tk-elements-callouts-tip-textColor: #14415c;
   --tk-elements-callouts-tip-borderColor: #00a8e1;
   --tk-elements-callouts-tip-titleTextColor: #003767;
   --tk-elements-callouts-tip-iconColor: #00a8e1;
   --tk-elements-callouts-tip-codeColor: #003767;
-  --tk-elements-callouts-tip-codeBackgroundColor: #ccedf9;
+  --tk-elements-callouts-tip-codeBackgroundColor: #BFE9F8;
   /* info → blue */
-  --tk-elements-callouts-info-backgroundColor: #e7f1f9;
+  --tk-elements-callouts-info-backgroundColor: #F8F8F8;
   --tk-elements-callouts-info-textColor: #163c56;
   --tk-elements-callouts-info-borderColor: #147ec2;
   --tk-elements-callouts-info-titleTextColor: #10486e;
@@ -333,23 +333,23 @@ body {
   --tk-elements-callouts-info-codeColor: #10486e;
   --tk-elements-callouts-info-codeBackgroundColor: #d3e6f4;
   /* warning → amber */
-  --tk-elements-callouts-warning-backgroundColor: #fbf1df;
+  --tk-elements-callouts-warning-backgroundColor: #F8F8F8;
   --tk-elements-callouts-warning-textColor: #74510d;
-  --tk-elements-callouts-warning-borderColor: #d98a00;
+  --tk-elements-callouts-warning-borderColor: #F5A623;
   --tk-elements-callouts-warning-titleTextColor: #8a5a00;
-  --tk-elements-callouts-warning-iconColor: #d98a00;
+  --tk-elements-callouts-warning-iconColor: #F5A623;
   --tk-elements-callouts-warning-codeColor: #8a5a00;
   --tk-elements-callouts-warning-codeBackgroundColor: #f6e3c2;
   /* danger → red */
-  --tk-elements-callouts-danger-backgroundColor: #f8eae8;
+  --tk-elements-callouts-danger-backgroundColor: #F8F8F8;
   --tk-elements-callouts-danger-textColor: #7a2c22;
-  --tk-elements-callouts-danger-borderColor: #c0392b;
+  --tk-elements-callouts-danger-borderColor: #D0021B;
   --tk-elements-callouts-danger-titleTextColor: #96271b;
-  --tk-elements-callouts-danger-iconColor: #c0392b;
+  --tk-elements-callouts-danger-iconColor: #D0021B;
   --tk-elements-callouts-danger-codeColor: #96271b;
   --tk-elements-callouts-danger-codeBackgroundColor: #f2d6d1;
   /* success → teal */
-  --tk-elements-callouts-success-backgroundColor: #e5f2f1;
+  --tk-elements-callouts-success-backgroundColor: #F8F8F8;
   --tk-elements-callouts-success-textColor: #1c4e4b;
   --tk-elements-callouts-success-borderColor: #00817d;
   --tk-elements-callouts-success-titleTextColor: #045f5c;
@@ -360,12 +360,12 @@ body {
   /* --- Elements: statuses --------------------------------- */
   --tk-elements-status-positive-textColor: #00817d;
   --tk-elements-status-positive-iconColor: #00817d;
-  --tk-elements-status-negative-textColor: #c0392b;
-  --tk-elements-status-negative-iconColor: #c0392b;
-  --tk-elements-status-skipped-textColor: #7c7c80;
-  --tk-elements-status-skipped-iconColor: #a3a3a7;
-  --tk-elements-status-disabled-textColor: #a3a3a7;
-  --tk-elements-status-disabled-iconColor: #c9c9cc;
+  --tk-elements-status-negative-textColor: #D0021B;
+  --tk-elements-status-negative-iconColor: #D0021B;
+  --tk-elements-status-skipped-textColor: #828284;
+  --tk-elements-status-skipped-iconColor: #9B9B9B;
+  --tk-elements-status-disabled-textColor: #9B9B9B;
+  --tk-elements-status-disabled-iconColor: #ACACAD;
   --tk-elements-status-active-textColor: #003767;
   --tk-elements-status-active-iconColor: #00a8e1;
 
@@ -400,10 +400,10 @@ body {
   /* --- Core: text ----------------------------------------- */
   --tk-text-primary: #ffffff;
   --tk-text-primary-inverted: #001a30;
-  --tk-text-secondary: #99afc2;
-  --tk-text-secondary-inverted: #46464a;
-  --tk-text-disabled: #6687a4;
-  --tk-text-body: #ccd7e1;
+  --tk-text-secondary: #809BB3;
+  --tk-text-secondary-inverted: #58585B;
+  --tk-text-disabled: #809BB3;
+  --tk-text-body: #BFCDD9;
   --tk-text-heading: #ffffff;
   --tk-text-active: #6dcff6;
   --tk-text-accent: #6dcff6;
@@ -419,8 +419,8 @@ body {
   --tk-border-brighter: #17568c;
   --tk-border-accent: #00a8e1;
   --tk-border-positive: #00817d;
-  --tk-border-warning: #d98a00;
-  --tk-border-negative: #c0392b;
+  --tk-border-warning: #F5A623;
+  --tk-border-negative: #D0021B;
   --tk-border-info: #147ec2;
   --tk-border-tip: #00a8e1;
 
@@ -429,12 +429,12 @@ body {
   /* --- Elements: app -------------------------------------- */
   --tk-elements-app-backgroundColor: #001a30;
   --tk-elements-app-borderColor: #0d3d6b;
-  --tk-elements-app-textColor: #ccd7e1;
+  --tk-elements-app-textColor: #BFCDD9;
 
   /* --- Elements: links ------------------------------------ */
   --tk-elements-link-primaryColor: #6dcff6;
   --tk-elements-link-primaryColorHover: #ffffff;
-  --tk-elements-link-secondaryColor: #99afc2;
+  --tk-elements-link-secondaryColor: #809BB3;
   --tk-elements-link-secondaryColorHover: #ffffff;
 
   /* --- Elements: primary button (sky on navy) ------------- */
@@ -454,7 +454,7 @@ body {
   --tk-elements-secondaryButton-iconColorHover: #ffffff;
 
   /* --- Elements: content ---------------------------------- */
-  --tk-elements-content-textColor: #ccd7e1;
+  --tk-elements-content-textColor: #BFCDD9;
   --tk-elements-content-headingTextColor: #ffffff;
 
   /* --- Elements: page loading indicator ------------------- */
@@ -475,54 +475,54 @@ body {
 
   /* --- Elements: panels ----------------------------------- */
   --tk-elements-panel-backgroundColor: #001a30;
-  --tk-elements-panel-textColor: #ccd7e1;
+  --tk-elements-panel-textColor: #BFCDD9;
   --tk-elements-panel-header-backgroundColor: #002440;
   --tk-elements-panel-header-textColor: #ffffff;
-  --tk-elements-panel-header-iconColor: #99afc2;
+  --tk-elements-panel-header-iconColor: #809BB3;
 
   --tk-elements-panel-headerButton-backgroundColor: transparent;
   --tk-elements-panel-headerButton-backgroundColorHover: #0d3d6b;
-  --tk-elements-panel-headerButton-textColor: #99afc2;
+  --tk-elements-panel-headerButton-textColor: #809BB3;
   --tk-elements-panel-headerButton-textColorHover: #ffffff;
-  --tk-elements-panel-headerButton-iconColor: #99afc2;
+  --tk-elements-panel-headerButton-iconColor: #809BB3;
   --tk-elements-panel-headerButton-iconColorHover: #6dcff6;
 
   --tk-elements-panel-headerTab-backgroundColor: #002440;
   --tk-elements-panel-headerTab-backgroundColorHover: #0d3d6b;
   --tk-elements-panel-headerTab-backgroundColorActive: #001a30;
-  --tk-elements-panel-headerTab-textColor: #99afc2;
+  --tk-elements-panel-headerTab-textColor: #809BB3;
   --tk-elements-panel-headerTab-textColorHover: #ffffff;
   --tk-elements-panel-headerTab-textColorActive: #ffffff;
   --tk-elements-panel-headerTab-borderColor: #0d3d6b;
   --tk-elements-panel-headerTab-borderColorHover: #14538c;
   --tk-elements-panel-headerTab-borderColorActive: #00a8e1;
-  --tk-elements-panel-headerTab-iconColor: #99afc2;
+  --tk-elements-panel-headerTab-iconColor: #809BB3;
   --tk-elements-panel-headerTab-iconColorHover: #ffffff;
   --tk-elements-panel-headerTab-iconColorActive: #00a8e1;
 
   /* --- Elements: file tree -------------------------------- */
   --tk-elements-fileTree-backgroundColor: #002440;
   --tk-elements-fileTree-backgroundColorHover: #0d3d6b;
-  --tk-elements-fileTree-textColor: #99afc2;
+  --tk-elements-fileTree-textColor: #809BB3;
   --tk-elements-fileTree-textColorHover: #ffffff;
-  --tk-elements-fileTree-iconColor: #99afc2;
+  --tk-elements-fileTree-iconColor: #809BB3;
   --tk-elements-fileTree-iconColorHover: #6dcff6;
 
   --tk-elements-fileTree-file-backgroundColor: transparent;
   --tk-elements-fileTree-file-backgroundColorHover: #0d3d6b;
   --tk-elements-fileTree-file-backgroundColorSelected: #06304f;
-  --tk-elements-fileTree-file-textColor: #99afc2;
+  --tk-elements-fileTree-file-textColor: #809BB3;
   --tk-elements-fileTree-file-textColorHover: #ffffff;
   --tk-elements-fileTree-file-textColorSelected: #ffffff;
-  --tk-elements-fileTree-file-iconColor: #6687a4;
+  --tk-elements-fileTree-file-iconColor: #809BB3;
   --tk-elements-fileTree-file-iconColorHover: #6dcff6;
   --tk-elements-fileTree-file-iconColorSelected: #00a8e1;
 
   --tk-elements-fileTree-folder-backgroundColor: transparent;
   --tk-elements-fileTree-folder-backgroundColorHover: #0d3d6b;
-  --tk-elements-fileTree-folder-textColor: #99afc2;
+  --tk-elements-fileTree-folder-textColor: #809BB3;
   --tk-elements-fileTree-folder-textColorHover: #ffffff;
-  --tk-elements-fileTree-folder-iconColor: #6687a4;
+  --tk-elements-fileTree-folder-iconColor: #809BB3;
   --tk-elements-fileTree-folder-iconColorHover: #6dcff6;
 
   /* --- Elements: navigation card -------------------------- */
@@ -536,7 +536,7 @@ body {
   --tk-elements-navCard-iconColorHover: #6dcff6;
 
   /* --- Elements: breadcrumbs — nav ------------------------ */
-  --tk-elements-breadcrumbs-navButton-iconColor: #99afc2;
+  --tk-elements-breadcrumbs-navButton-iconColor: #809BB3;
   --tk-elements-breadcrumbs-navButton-iconColorHover: #ffffff;
 
   /* --- Elements: breadcrumbs — toggle button -------------- */
@@ -549,27 +549,27 @@ body {
   --tk-elements-breadcrumbs-toggleButton-textColor: #ffffff;
   --tk-elements-breadcrumbs-toggleButton-textColorHover: #ffffff;
   --tk-elements-breadcrumbs-toggleButton-textColorSelected: #ffffff;
-  --tk-elements-breadcrumbs-toggleButton-textDividerColor: #6687a4;
-  --tk-elements-breadcrumbs-toggleButton-textDividerColorHover: #99afc2;
-  --tk-elements-breadcrumbs-toggleButton-textDividerColorSelected: #99afc2;
-  --tk-elements-breadcrumbs-toggleButton-iconColor: #99afc2;
+  --tk-elements-breadcrumbs-toggleButton-textDividerColor: #809BB3;
+  --tk-elements-breadcrumbs-toggleButton-textDividerColorHover: #809BB3;
+  --tk-elements-breadcrumbs-toggleButton-textDividerColorSelected: #809BB3;
+  --tk-elements-breadcrumbs-toggleButton-iconColor: #809BB3;
   --tk-elements-breadcrumbs-toggleButton-iconColorHover: #ffffff;
   --tk-elements-breadcrumbs-toggleButton-iconColorSelected: #00a8e1;
 
   /* --- Elements: breadcrumbs — dropdown ------------------- */
   --tk-elements-breadcrumbs-dropdown-backgroundColor: #002440;
   --tk-elements-breadcrumbs-dropdown-borderColor: #0d3d6b;
-  --tk-elements-breadcrumbs-dropdown-textColor: #99afc2;
+  --tk-elements-breadcrumbs-dropdown-textColor: #809BB3;
   --tk-elements-breadcrumbs-dropdown-textColorHover: #ffffff;
-  --tk-elements-breadcrumbs-dropdown-accordionTextColor: #99afc2;
+  --tk-elements-breadcrumbs-dropdown-accordionTextColor: #809BB3;
   --tk-elements-breadcrumbs-dropdown-accordionTextColorSelected: #ffffff;
   --tk-elements-breadcrumbs-dropdown-accordionTextColorHover: #ffffff;
-  --tk-elements-breadcrumbs-dropdown-accordionIconColor: #6687a4;
+  --tk-elements-breadcrumbs-dropdown-accordionIconColor: #809BB3;
   --tk-elements-breadcrumbs-dropdown-accordionIconColorSelected: #00a8e1;
   --tk-elements-breadcrumbs-dropdown-accordionIconColorHover: #6dcff6;
   --tk-elements-breadcrumbs-dropdown-lessonBackgroundColor: #002440;
   --tk-elements-breadcrumbs-dropdown-lessonBackgroundColorSelected: #06304f;
-  --tk-elements-breadcrumbs-dropdown-lessonTextColor: #99afc2;
+  --tk-elements-breadcrumbs-dropdown-lessonTextColor: #809BB3;
   --tk-elements-breadcrumbs-dropdown-lessonTextColorSelected: #ffffff;
   --tk-elements-breadcrumbs-dropdown-lessonTextColorHover: #ffffff;
 
@@ -582,19 +582,19 @@ body {
   --tk-elements-editor-panels-borderColor: #0d3d6b;
   --tk-elements-editor-selection-backgroundColor: #00a8e1;
   --tk-elements-editor-selection-backgroundOpacity: 0.28;
-  --tk-elements-editor-selection-inactiveBackgroundColor: #6687a4;
+  --tk-elements-editor-selection-inactiveBackgroundColor: #809BB3;
   --tk-elements-editor-selection-inactiveBackgroundOpacity: 0.22;
 
-  --tk-elements-editor-gutter-textColor: #6687a4;
+  --tk-elements-editor-gutter-textColor: #809BB3;
   --tk-elements-editor-gutter-backgroundColor: #001a30;
   --tk-elements-editor-gutter-activeLineTextColor: #6dcff6;
 
-  --tk-elements-editor-foldGutter-textColor: #6687a4;
+  --tk-elements-editor-foldGutter-textColor: #809BB3;
   --tk-elements-editor-foldGutter-textColorHover: #6dcff6;
 
   --tk-elements-editor-search-textColor: #ffffff;
   --tk-elements-editor-search-backgroundColor: #14538c;
-  --tk-elements-editor-search-closeButton-textColor: #99afc2;
+  --tk-elements-editor-search-closeButton-textColor: #809BB3;
   --tk-elements-editor-search-closeButton-textColorHover: #ffffff;
   --tk-elements-editor-search-closeButton-backgroundColor: transparent;
   --tk-elements-editor-search-closeButton-backgroundColorHover: #0d3d6b;
@@ -609,7 +609,7 @@ body {
   --tk-elements-editor-search-input-borderColor: #0d3d6b;
   --tk-elements-editor-search-input-borderColorFocused: #00a8e1;
 
-  --tk-elements-editor-tooltip-textColor: #99afc2;
+  --tk-elements-editor-tooltip-textColor: #809BB3;
   --tk-elements-editor-tooltip-textColorSelected: #ffffff;
   --tk-elements-editor-tooltip-backgroundColor: #002440;
   --tk-elements-editor-tooltip-backgroundColorSelected: #003767;
@@ -617,7 +617,7 @@ body {
 
   /* --- Elements: terminal --------------------------------- */
   --tk-elements-terminal-backgroundColor: #001325;
-  --tk-elements-terminal-textColor: #e2e2e4;
+  --tk-elements-terminal-textColor: #D5D5D6;
   --tk-elements-terminal-cursorColor: #00a8e1;
   --tk-elements-terminal-selection-backgroundColor: rgba(0, 168, 225, 0.30);
 
@@ -640,7 +640,7 @@ body {
 
   --tk-elements-callouts-warning-backgroundColor: #3a2e12;
   --tk-elements-callouts-warning-textColor: #f5e2bf;
-  --tk-elements-callouts-warning-borderColor: #d98a00;
+  --tk-elements-callouts-warning-borderColor: #F5A623;
   --tk-elements-callouts-warning-titleTextColor: #f0a52a;
   --tk-elements-callouts-warning-iconColor: #f0a52a;
   --tk-elements-callouts-warning-codeColor: #f5e2bf;
@@ -648,7 +648,7 @@ body {
 
   --tk-elements-callouts-danger-backgroundColor: #3a1e1a;
   --tk-elements-callouts-danger-textColor: #f5d3cd;
-  --tk-elements-callouts-danger-borderColor: #c0392b;
+  --tk-elements-callouts-danger-borderColor: #D0021B;
   --tk-elements-callouts-danger-titleTextColor: #e8746a;
   --tk-elements-callouts-danger-iconColor: #e05a4d;
   --tk-elements-callouts-danger-codeColor: #f5d3cd;
@@ -666,11 +666,11 @@ body {
   --tk-elements-status-positive-textColor: #5cc0bc;
   --tk-elements-status-positive-iconColor: #00817d;
   --tk-elements-status-negative-textColor: #e8746a;
-  --tk-elements-status-negative-iconColor: #c0392b;
-  --tk-elements-status-skipped-textColor: #99afc2;
-  --tk-elements-status-skipped-iconColor: #6687a4;
-  --tk-elements-status-disabled-textColor: #6687a4;
-  --tk-elements-status-disabled-iconColor: #46464a;
+  --tk-elements-status-negative-iconColor: #D0021B;
+  --tk-elements-status-skipped-textColor: #809BB3;
+  --tk-elements-status-skipped-iconColor: #809BB3;
+  --tk-elements-status-disabled-textColor: #809BB3;
+  --tk-elements-status-disabled-iconColor: #58585B;
   --tk-elements-status-active-textColor: #ffffff;
   --tk-elements-status-active-iconColor: #00a8e1;
 
@@ -709,10 +709,10 @@ body {
    ============================================================ */
 :root[data-theme='veterinary'] {
   --tk-background-accent: #00817d;
-  --tk-background-accent-secondary: #e5f2f1;
+  --tk-background-accent-secondary: #F8F8F8;
   --tk-background-accent-active: #045f5c;
   --tk-background-active-secondary: #d6ece9;
-  --tk-background-tip: #e5f2f1;
+  --tk-background-tip: #F8F8F8;
 
   --tk-text-accent: #045f5c;
   --tk-text-active: #00817d;
@@ -744,7 +744,7 @@ body {
   --tk-elements-panel-headerTab-borderColorActive: #00817d;
   --tk-elements-panel-headerTab-iconColorActive: #00817d;
 
-  --tk-elements-fileTree-file-backgroundColorSelected: #e5f2f1;
+  --tk-elements-fileTree-file-backgroundColorSelected: #F8F8F8;
   --tk-elements-fileTree-file-iconColorSelected: #00817d;
   --tk-elements-fileTree-folder-iconColorHover: #00817d;
 
@@ -763,7 +763,7 @@ body {
   --tk-elements-status-active-iconColor: #7bc24d;
 
   /* tip callout → teal */
-  --tk-elements-callouts-tip-backgroundColor: #e5f2f1;
+  --tk-elements-callouts-tip-backgroundColor: #F8F8F8;
   --tk-elements-callouts-tip-textColor: #1c4e4b;
   --tk-elements-callouts-tip-borderColor: #00817d;
   --tk-elements-callouts-tip-titleTextColor: #045f5c;

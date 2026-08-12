@@ -1,5 +1,7 @@
 // templates/file-manager/ds-base.js
-// Loads the Patterson Companies design system (styles + component bundle).
+// Loads the Patterson Companies design system (tokens + component CSS).
+// styles.css imports components/components.css, so the component layer comes
+// with it — there is no JavaScript bundle to load.
 // Consuming projects: point `base` at the bound _ds/<folder> tree relative to this page.
 (() => {
   const base = '../..';
@@ -9,9 +11,6 @@
     l.href = base + '/' + p;
     document.head.appendChild(l);
   }
-  const s = document.createElement('script');
-  s.src = base + '/_ds_bundle.js';
-  s.onerror = () => console.error('ds-base.js: failed to load ' + s.src +
-    ' — in a consuming project point the base line at the bound _ds/<folder> tree relative to this page; in this design system itself it just means the bundle has not compiled yet.');
-  document.head.appendChild(s);
+  // Expose the resolved asset base so the template can reference brand assets.
+  window.__PAT_DS_BASE = base;
 })();

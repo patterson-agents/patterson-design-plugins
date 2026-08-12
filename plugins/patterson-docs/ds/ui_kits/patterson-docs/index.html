@@ -8,21 +8,20 @@
 <link rel="stylesheet" href="../../styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <style>
 :root{
-  --c-bg:#ffffff; --c-bg-alt:#f6f7f8; --c-bg-soft:#f6f7f8;
-  --c-text:#1d1d20; --c-text-2:#58585B; --c-text-3:#8a8a8e;
+  --c-bg:#ffffff; --c-bg-alt:#F8F8F8; --c-bg-soft:#F8F8F8;
+  --c-text:#003767; --c-text-2:#58585B; --c-text-3:#8a8a8e;
   --c-border:#e4e5e8; --c-divider:#ececec;
   --c-brand:#003767; --c-brand-2:#00A8E1; --c-brand-3:#147EC2;
   --c-brand-soft:rgba(0,168,225,.10); --c-brand-line:rgba(0,168,225,.55);
-  --code-bg:#f6f7f8; --code-block-bg:#1b2432; --code-block-text:#d6dbe4; --code-block-dim:#7c8aa0;
+  --code-bg:#F8F8F8; --code-block-bg:#1b2432; --code-block-text:#d6dbe4; --code-block-dim:#7c8aa0;
   --nav-h:64px; --sb-w:280px; --aside-w:230px;
   --radius:9px; --shadow:0 6px 24px rgba(0,55,103,.10);
-  --sans:var(--font-sans,'Figtree',system-ui,sans-serif);
+  --sans:var(--font-sans,'proxima-nova',Arial,sans-serif);
   --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
 }
 html[data-theme=dark]{
@@ -75,15 +74,15 @@ html[data-theme=dark] .vp-logo-mark{background:var(--c-brand-2);color:#00263f}
 .vp-sb-link{display:flex;align-items:center;gap:6px;padding:5px 0 5px 12px;margin-left:-1px;border-left:1.5px solid var(--c-divider);font-size:13.75px;font-weight:500;color:var(--c-text-2);line-height:1.4}
 .vp-sb-link:hover{color:var(--c-text)}
 .vp-sb-link.active{color:var(--c-brand-3);border-left-color:var(--c-brand-2);font-weight:700}
-.vp-sb-badge{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--c-brand-3);background:var(--c-brand-soft);padding:1px 5px;border-radius:20px}
+.vp-sb-badge{font-size:9.5px;font-weight:700;letter-spacing:.04em;color:var(--c-brand-3);background:var(--c-brand-soft);padding:1px 5px;border-radius:20px}
 
 /* ---------- doc ---------- */
 .vp-doc-wrap{padding:32px 0 64px;min-height:calc(100vh - var(--nav-h))}
 .vp-doc-layout{display:flex;gap:40px;padding-left:40px}
 .vp-doc{flex:1;min-width:0;max-width:720px}
-.vp-breadcrumb{margin:0 0 8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c-brand-3)}
+.vp-breadcrumb{margin:0 0 8px;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--c-brand-3)}
 .vp-doc h1{font-size:33px;line-height:1.2;letter-spacing:-.02em;margin:0 0 8px;font-weight:800;display:flex;flex-wrap:wrap;align-items:center;gap:12px}
-.vp-badge{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--c-brand-3);background:var(--c-brand-soft);padding:3px 9px;border-radius:20px}
+.vp-badge{font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--c-brand-3);background:var(--c-brand-soft);padding:3px 9px;border-radius:20px}
 .vp-lead{font-size:18px;line-height:1.6;color:var(--c-text-2);margin:0 0 26px}
 .vp-doc h2{font-size:23px;font-weight:700;letter-spacing:-.01em;margin:44px 0 16px;padding-top:22px;border-top:1px solid var(--c-divider);scroll-margin-top:84px}
 .vp-doc h3{font-size:18px;font-weight:700;margin:28px 0 12px;scroll-margin-top:84px}
@@ -97,7 +96,7 @@ html[data-theme=dark] .vp-logo-mark{background:var(--c-brand-2);color:#00263f}
 
 /* code block */
 .vp-code{position:relative;margin:20px 0;border-radius:var(--radius);background:var(--code-block-bg);overflow:hidden}
-.vp-code-lang{position:absolute;top:9px;right:14px;font-family:var(--mono);font-size:11px;color:var(--code-block-dim);text-transform:uppercase;letter-spacing:.05em}
+.vp-code-lang{position:absolute;top:9px;right:14px;font-family:var(--mono);font-size:11px;color:var(--code-block-dim);letter-spacing:.05em}
 .vp-code pre{margin:0;padding:18px 20px;overflow-x:auto}
 .vp-code code{font-family:var(--mono);font-size:13.25px;line-height:1.7;color:var(--code-block-text);white-space:pre}
 .tok-comment{color:var(--code-block-dim);font-style:italic}
@@ -106,14 +105,14 @@ html[data-theme=dark] .vp-logo-mark{background:var(--c-brand-2);color:#00263f}
 /* custom blocks */
 .custom-block{margin:20px 0;padding:14px 18px;border-radius:var(--radius);border-left:4px solid;font-size:14.5px}
 .custom-block p{margin:6px 0}
-.custom-block-title{font-weight:800;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;margin-top:0!important}
+.custom-block-title{font-weight:800;font-size:12.5px;letter-spacing:.05em;margin-top:0!important}
 .custom-block.tip{background:var(--c-brand-soft);border-color:var(--c-brand-2)}
 .custom-block.tip .custom-block-title{color:var(--c-brand-3)}
 .custom-block.info{background:var(--c-bg-alt);border-color:var(--c-text-3)}
 .custom-block.info .custom-block-title{color:var(--c-text-2)}
-.custom-block.warning{background:#fbf1df;border-color:#d98a00}
+.custom-block.warning{background:#F8F8F8;border-color:#F5A623}
 .custom-block.warning .custom-block-title{color:#a86a00}
-.custom-block.danger{background:#f8eae8;border-color:#c0392b}
+.custom-block.danger{background:#F8F8F8;border-color:#D0021B}
 .custom-block.danger .custom-block-title{color:#a4291c}
 html[data-theme=dark] .custom-block.warning{background:rgba(217,138,0,.12)}
 html[data-theme=dark] .custom-block.warning .custom-block-title{color:#e6a52e}
@@ -122,7 +121,7 @@ html[data-theme=dark] .custom-block.danger .custom-block-title{color:#e8776a}
 
 /* compass note */
 .vp-compass{display:flex;gap:12px;align-items:flex-start;margin:0 0 26px;padding:14px 18px;border-radius:var(--radius);background:linear-gradient(180deg,var(--c-brand-soft),transparent);border:1px solid var(--c-brand-line);font-size:14.5px;color:var(--c-text-2)}
-.vp-compass-badge{flex:none;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#fff;background:var(--c-brand);padding:4px 9px;border-radius:20px;margin-top:1px}
+.vp-compass-badge{flex:none;font-size:11px;font-weight:800;letter-spacing:.05em;color:#fff;background:var(--c-brand);padding:4px 9px;border-radius:20px;margin-top:1px}
 html[data-theme=dark] .vp-compass-badge{background:var(--c-brand-2);color:#00263f}
 
 /* table */
@@ -164,7 +163,7 @@ html[data-theme=dark] .vp-compass-badge{background:var(--c-brand-2);color:#00263
 /* ---------- home ---------- */
 .vp-home{padding:56px 0 72px}
 .vp-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;margin-bottom:64px}
-.vp-hero-eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c-brand-3);margin:0 0 14px}
+.vp-hero-eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--c-brand-3);margin:0 0 14px}
 .vp-hero-title{font-size:62px;line-height:1.02;letter-spacing:-.03em;font-weight:800;margin:0 0 20px}
 .vp-hero-title .brand{color:var(--c-brand-3)}
 .vp-hero-tagline{font-size:19px;line-height:1.55;color:var(--c-text-2);margin:0 0 30px;max-width:33ch}
@@ -180,7 +179,7 @@ html[data-theme=dark] .vp-btn.brand{background:var(--c-brand-2);color:#00263f}
 .vp-compass-graphic{position:relative;aspect-ratio:1;max-width:360px;margin-left:auto;border-radius:20px;background:var(--c-bg-alt);border:1px solid var(--c-border);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;padding:2px;overflow:hidden}
 .q{display:flex;flex-direction:column;justify-content:center;align-items:center;background:var(--c-bg);padding:12px;gap:2px}
 .q span{font-weight:800;font-size:16px;color:var(--c-text)}
-.q em{font-size:11px;font-style:normal;color:var(--c-text-3);text-transform:uppercase;letter-spacing:.05em}
+.q em{font-size:11px;font-style:normal;color:var(--c-text-3);letter-spacing:.05em}
 .q1{border-radius:16px 0 0 0}.q2{border-radius:0 16px 0 0}.q3{border-radius:0 0 0 16px}.q4{border-radius:0 0 16px 0}
 .q1 span,.q4 span{color:var(--c-brand-3)}
 .vp-compass-graphic .axis{display:none}

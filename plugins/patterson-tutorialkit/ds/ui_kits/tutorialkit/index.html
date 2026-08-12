@@ -54,12 +54,12 @@
     background: rgba(255,255,255,0.12); color: #fff;
     border: 1px solid rgba(255,255,255,0.28); cursor: pointer;
   }
-  .switcher select option { color: #1d1d20; }
+  .switcher select option { color: #003767; }
 
   /* --- Breadcrumb bar -------------------------------------------------- */
   .breadcrumbs {
     display: flex; align-items: center; gap: 10px;
-    height: 44px; padding: 0 20px;
+    height: 46px; padding: 0 30px; /* [BG25 p.57] 46px control, 30px padding */
     background: var(--tk-elements-panel-header-backgroundColor);
     border-bottom: 1px solid var(--tk-elements-app-borderColor);
     font-size: 13px;
@@ -90,7 +90,7 @@
   .content a { color: var(--tk-elements-link-primaryColor); text-decoration: none; font-weight: 600; }
   .content a:hover { color: var(--tk-elements-link-primaryColorHover); }
   .eyebrow {
-    font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
     color: var(--tk-background-accent); margin-bottom: 8px;
   }
 
@@ -100,7 +100,7 @@
     font-size: 14px; line-height: 1.55;
   }
   .callout .title { font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 7px; }
-  .callout code { padding: 1px 6px; border-radius: 4px; font-family: var(--tk-font-mono); font-size: 12px; }
+  .callout code { padding: 1px 6px; border-radius: 5px; font-family: var(--tk-font-mono); font-size: 12px; }
   .callout.tip {
     background: var(--tk-elements-callouts-tip-backgroundColor); color: var(--tk-elements-callouts-tip-textColor);
     border-color: var(--tk-elements-callouts-tip-borderColor);
@@ -227,7 +227,7 @@
   .terminal .bad { color: var(--tk-elements-terminal-color-red); }
   .terminal .accent { color: var(--tk-elements-terminal-color-cyan); }
   .terminal .dim { color: var(--tk-elements-terminal-color-brightBlack); }
-  .term-header { padding: 8px 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  .term-header { padding: 8px 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
     color: var(--tk-elements-panel-header-textColor); background: var(--tk-elements-panel-header-backgroundColor);
     border-top: 1px solid var(--tk-elements-app-borderColor); }
 

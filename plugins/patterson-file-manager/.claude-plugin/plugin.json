@@ -1,6 +1,6 @@
 {
   "name": "patterson-file-manager",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Patterson \"Skill Studio\" file-manager application shell: navy top bar, sidebar tree, content grid — a React prototype template for internal tools and dashboard-style apps.",
   "author": {
     "name": "Patterson Companies Design System"

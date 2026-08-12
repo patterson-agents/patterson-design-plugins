@@ -25,7 +25,7 @@ documentation or reference site rather than an interactive WebContainer tutorial
 | `--sl-color-accent-high` (dark) | sky-40 `#9BDCF4` |
 | `--sl-color-accent-high` (light) | navy `#003767` |
 | `--sl-color-accent` (light) | blue `#147EC2` |
-| `--sl-font` | Proxima Nova → Figtree → system |
+| `--sl-font` | proxima-nova → Arial → sans-serif [BG25 p.25] |
 | `.header` background | navy `#003767`, sky `#00A8E1` hairline |
 | focus ring | sky `#00A8E1` |
 | `.sl-link-button.primary` | navy, sky on hover, pill radius |

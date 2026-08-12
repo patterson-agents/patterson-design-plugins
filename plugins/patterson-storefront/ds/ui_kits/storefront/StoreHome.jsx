@@ -39,7 +39,7 @@ function StoreHome({ brand, onAdd }) {
             const I = quickIcons[i % quickIcons.length];
             return (
               <Card key={q} interactive onClick={onAdd} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                <span style={{ width: 46, height: 46, flex: 'none', borderRadius: 'var(--radius-md)', background: 'var(--pat-sky-10)', color: 'var(--pat-sky)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}><I size={24} /></span>
+                <span style={{ width: 46, height: 46, flex: 'none', borderRadius: 'var(--radius-md)', background: 'var(--pat-sky-25)', color: 'var(--pat-sky)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}><I size={24} /></span>
                 <span style={{ fontWeight: 600, color: 'var(--text-heading)', fontSize: 'var(--fs-body)' }}>{q}</span>
                 <span style={{ marginLeft: 'auto', color: 'var(--pat-sky)', display: 'flex' }}><SArrow size={18} /></span>
               </Card>
@@ -121,7 +121,7 @@ function StoreHome({ brand, onAdd }) {
               return (
                 <Card key={col.t} accent="sky" style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                   <span style={{ color: 'var(--pat-sky)', display: 'flex' }}><I size={26} /></span>
-                  <div style={{ fontWeight: 700, color: 'var(--text-heading)', textTransform: 'uppercase', letterSpacing: 'var(--ls-wide)', fontSize: 'var(--fs-xs)' }}>{col.t}</div>
+                  <div style={{ fontWeight: 700, color: 'var(--text-heading)', letterSpacing: 'var(--ls-wide)', fontSize: 'var(--fs-xs)' }}>{col.t}</div>
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 7 }}>
                     {col.items.map((it) => <li key={it} style={{ fontSize: 'var(--fs-sm)', color: 'var(--text-body)', display: 'flex', gap: 7, alignItems: 'flex-start' }}><span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--pat-sky)', marginTop: 7, flex: 'none' }} />{it}</li>)}
                   </ul>

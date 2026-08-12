@@ -51,7 +51,7 @@ function HomeScreen({ onNavigate }) {
             const I = p.icon;
             return (
               <Card key={p.title} interactive accent="sky" style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                <span style={{ width: 48, height: 48, borderRadius: 'var(--radius-md)', background: 'var(--pat-navy-10)', color: p.color, display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ width: 48, height: 48, borderRadius: 'var(--radius-md)', background: 'var(--pat-navy-25)', color: p.color, display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
                   <I size={26} />
                 </span>
                 <h3 style={{ margin: 0, fontSize: 'var(--fs-h4)' }}>{p.title}</h3>

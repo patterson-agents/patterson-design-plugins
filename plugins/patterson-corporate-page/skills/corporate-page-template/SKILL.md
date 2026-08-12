@@ -10,7 +10,7 @@ Patterson corporate web page shell: sticky nav with logo, navy hero, content ban
 
 ## What this plugin ships
 
-Everything lives under `${CLAUDE_PLUGIN_ROOT}/ds/`, laid out exactly like the Patterson design-system source tree, so every relative reference inside the files (`../../styles.css`, `../../assets/brand/…`, `../../_ds_bundle.js`) resolves without edits.
+Everything lives under `${CLAUDE_PLUGIN_ROOT}/ds/`, laid out exactly like the Patterson design-system source tree, so every relative reference inside the files (`../../styles.css`, `../../assets/brand/…`, `../../components/components.css`) resolves without edits.
 
 ## Scaffolding workflow
 
@@ -28,21 +28,21 @@ Everything lives under `${CLAUDE_PLUGIN_ROOT}/ds/`, laid out exactly like the Pa
 ## Contents
 
 - `ds/templates/corporate-page/index.html` — page shell (React 18 UMD + Babel, in-browser JSX)
-- `ds/templates/corporate-page/ds-base.js` — loads tokens + `_ds_bundle.js` (base path `../..`)
-- plus `ds/styles.css`, `ds/tokens/`, `ds/assets/`, `ds/_ds_bundle.js`
+- `ds/templates/corporate-page/ds-base.js` — loads `styles.css` (tokens + component CSS), base path `../..`
+- plus `ds/styles.css`, `ds/tokens/`, `ds/components/` (the CSS component layer), `ds/assets/`
 
 ## Template notes
 
 - No build step: React + Babel standalone run in the browser; JSX lives inline in `index.html`.
-- Design-system components come from `window.PattersonCompaniesDesignSystem_1f7cbe` (Button, Card, Stat, Badge, …) once `_ds_bundle.js` loads.
+- Design-system components are CSS classes from `ds/components/components.css` (`.pat-btn`, `.pat-card`, `.pat-stat`, `.pat-badge`, …), available as soon as `styles.css` loads. There is no component runtime.
 - Add sections inside the `<main>` between hero and footer; use `pat-container` for the centered max-width column and `--space-*` rhythm (64–128px between sections).
 
 ## Patterson brand quick reference
 
 - **Brand:** Patterson Companies, Inc. — oral (dental) & animal health distribution. Since 1877. Promise: *"Trusted Expertise. Unrivaled Support."*
 - **Colors:** Navy `#003767` (primary), Sky `#00A8E1` (accent, hovers, stats). Secondary blue `#147EC2`. Tertiary green `#7BC24D`, teal `#00817D`, purple `#522E91` — data/infographics only, never page chrome. Body gray `#58585B`, light gray `#ECECEC`.
-- **Type:** Proxima Nova (licensed; woff2 subset bundled), Figtree as free fallback. Bold navy headlines, tight tracking; cool-gray body at 1.6 leading; big sky-blue stats. UPPERCASE letter-spaced eyebrows.
-- **Shape:** Pill buttons (navy, shifts to sky on hover), 10px card radius, soft navy-tinted shadows, 3px sky focus ring.
+- **Type:** Proxima Nova, loaded from Adobe Fonts kit `uth1qfm` — never self-hosted; no font binaries and no embedded font declarations anywhere in the repo (Adobe's Terms of Use bar re-hosting Typekit payloads). Arial is the sanctioned substitute [BG25 p.25]. Navy headlines (Extrabold 800), tracking -10 [BG25 p.27]; body at 1.5 leading (BG25 p.27 allows 125-150%); big sky-blue stats. Eyebrows are teal `#00817D` and **sentence case** [DS20 p.16]. **Sentence case is mandatory** — all caps are barred from digital channels [BG25 p.25].
+- **Shape:** 5px corner radius on buttons, cards and inputs [BG25 p.57]; 46px control height, 30px horizontal button padding [BG25 p.57]; soft navy-tinted shadows [TBD: no elevation scale is published]; 3px sky focus ring.
 - **Voice:** Confident, warm, plain-spoken. "We" for Patterson, "you" for the customer. Short declarative sentences. Numbers as proof points. **Never use emoji.**
 - **Motion:** Restrained, 120–320ms, no bounces, no infinite loops.
 

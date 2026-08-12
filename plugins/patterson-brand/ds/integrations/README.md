@@ -137,9 +137,9 @@ Patterson buttons are **pills** — set the shadcn Button radius accordingly, e.
 
 ## Which should I use?
 
-- **Building inside this design system / a React app that wants ready components** →
-  use the compiled components on `window.PattersonCompaniesDesignSystem_1f7cbe` (see the
-  root `readme.md`). No adapter needed.
+- **Building inside this design system / any app that wants ready components** →
+  link `styles.css` and use the CSS classes in `components/components.css` (see the root
+  `readme.md`). No adapter and no JavaScript needed.
 - **A Theme UI app** → `theme-ui.js`.
 - **A Tailwind or shadcn/ui app** → `tailwind.css` (+ `shadcn-theme.css` for shadcn).
 - **A UnoCSS app** → `uno.config.js`.

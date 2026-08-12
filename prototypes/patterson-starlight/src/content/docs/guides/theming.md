@@ -17,7 +17,7 @@ overrides three things and leaves the rest of Starlight's tuned defaults alone:
    (sky-forward on dark, navy-forward on light).
 2. **Fonts** — `--sl-font` and `--sl-font-mono` point at the Patterson stacks.
 3. **Brand chrome** — the navy top bar with a sky hairline, the sky focus ring, pill
-   call-to-action buttons, and 10px cards.
+   call-to-action buttons, and 5px corners [BG25 p.57].
 
 We deliberately do **not** remap Starlight's full neutral gray ramp — that is where
 contrast regressions hide. Keeping the tuned grays preserves accessibility while the
@@ -44,7 +44,7 @@ Edit the accent block for the theme you want:
 
 ## Adding Proxima Nova
 
-The font stack lists `proxima-nova` first but ships the Figtree/system fallback.
+The font stack is `"proxima-nova", Arial, sans-serif` — verbatim from the live Patterson sites. Proxima Nova comes from Adobe Fonts kit `uth1qfm`; Arial is the sanctioned substitute [BG25 p.25].
 To render the real face, add your Adobe Fonts (Typekit) embed via a custom `Head`
 component (`components.Head` in `astro.config.mjs`) — the stack picks it up with no
 other change.

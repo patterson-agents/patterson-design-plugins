@@ -56,8 +56,8 @@ ds/
 ├── tokens/                 # fonts · colors · typography · spacing · effects · base
 ├── theme.json              # canonical machine-readable theme (Theme UI spec)
 ├── components/             # Button, Card, Stat, Badge, Input, Select, Tabs, Alert…
+│   ├── components.css      # the CSS component layer — imported by styles.css
 │   └── */*.prompt.md       # per-component usage guides — read before using
-├── _ds_bundle.js           # compiled runtime → window.PattersonCompaniesDesignSystem_1f7cbe
 ├── integrations/           # tailwind.css (v4) · tailwind.config.js (v3) · uno.config.js
 │                           # theme-ui.js · shadcn-theme.css · README.md
 ├── guidelines/             # browser-openable specimen cards (colors, type, spacing…)
@@ -83,14 +83,16 @@ ds/
 </style>
 ```
 
-### React (no build step)
+### Components (no build step, no JavaScript)
 
 ```html
-<script src="patterson/_ds_bundle.js"></script>
-<script type="text/babel">
-  const { Button, Card, Stat } = window.PattersonCompaniesDesignSystem_1f7cbe;
-  <Stat value="98%" label="of customers reached in 1-to-2-day shipping" />
-</script>
+<link rel="stylesheet" href="patterson/styles.css">
+
+<button class="pat-btn pat-btn--primary">Shop now</button>
+<div class="pat-stat pat-stat--sky">
+  <span class="pat-stat__value">98%</span>
+  <span class="pat-stat__label">of customers reached in 1-to-2-day shipping</span>
+</div>
 ```
 
 ### Framework adapters
@@ -121,4 +123,4 @@ Open [`ds/guidelines/brand-palette.card.html`](ds/guidelines/brand-palette.card.
 
 ## Brand quick reference
 
-Navy `#003767` · Sky `#00A8E1` · body gray `#58585B` — always via `var(--pat-*)` tokens, never raw hexes. Proxima Nova (Figtree fallback). Pill buttons (navy → sky on hover), 10px cards, navy-tinted shadows, sky focus ring. Voice: confident, plain-spoken, “we/you”, numbers as proof. **No emoji.** Full guide: [`patterson-brand`](../patterson-brand/) → `ds/readme.md`.
+Navy `#003767` · Sky `#00A8E1` · body gray `#58585B` — always via `var(--pat-*)` tokens, never raw hexes. Proxima Nova from Adobe Fonts kit `uth1qfm` (Arial substitute; no self-hosted files). 5px radius [BG25 p.57], 46px controls [BG25 p.57], sky focus ring. Sentence case everywhere [BG25 p.25]. Voice: confident, plain-spoken, “we/you”, numbers as proof. **No emoji.** Full guide: [`patterson-brand`](../patterson-brand/) → `ds/readme.md`.

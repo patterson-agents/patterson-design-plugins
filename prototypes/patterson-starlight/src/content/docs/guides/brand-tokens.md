@@ -13,25 +13,28 @@ render on-brand automatically.
 |---|---|---|
 | `--pat-navy` | `#003767` | Primary — chrome, strong text, primary buttons |
 | `--pat-sky` | `#00A8E1` | Accent — hover, focus ring, links on dark |
-| `--pat-blue` | `#147EC2` | Links on light backgrounds (contrast-safe) |
-| `--pat-gray` | `#58585B` | Body copy |
-| `--pat-ink` | `#1D1D20` | Headings on light |
+| `--pat-blue` | `#147EC2` | Secondary blue [BG25 p.24] |
+| `--pat-digital-link` | `#147CBD` | Links on light backgrounds (WCAG-adjusted) [DS20 p.8] |
+| `--pat-gray` | `#58585B` | Body copy [BG25 p.24] |
+| `--pat-ink` | `#003767` | Headings — navy, not near-black [DPL `.rtf h1/h2/h3`] |
 
-The full ramp (navy/sky tints, cool grays, and the tertiary green/teal/purple
-set) lives in the `patterson-brand` plugin's `ds/tokens/` — copy those files in if
+The full ramp (the published 75/50/25 tints, the sourced neutral ramp, the
+WCAG-adjusted digital palette, and the tertiary green/teal/purple set) lives in
+the `patterson-brand` plugin's `ds/tokens/` — copy those files in if
 you need the complete palette in content.
 
 ## Type
 
-Proxima Nova is the brand face, with **Figtree** as the free fallback and a system
+Proxima Nova is the brand face [BG25 p.25], with **Arial** as the sanctioned substitute and a system
 stack beneath it. The scale runs from a fluid display size down to 12px captions;
 Starlight's body type is set to the Patterson stack via `--sl-font`.
 
 ## Shape and interaction
 
-- **Buttons** are pills (`border-radius: 999px`); primary goes navy, shifting to
-  sky on hover — the signature Patterson interaction.
-- **Cards and callouts** use a 10px radius.
+- **Buttons** are 46px tall with 30px horizontal padding and a 5px radius
+  [BG25 p.57]; the default fill is sky `#00A8E1` with white text, and CTA text is
+  sentence case — never all caps.
+- **Cards and callouts** use the same 5px radius [BG25 p.57].
 - **Focus** is a 2px sky ring, offset 2px, on every interactive element.
 
 ## Voice

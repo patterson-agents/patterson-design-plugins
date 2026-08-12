@@ -6,7 +6,10 @@
  * with `@config "./tailwind.config.js";`.
  *
  * All values mirror tokens/*.css and theme.json. Spacing is intentionally
- * left as Tailwind's default (0.25rem base = Patterson's 4px grid).
+ * left as Tailwind's default (0.25rem base).
+ * [TBD] Patterson publishes no named spacing scale; the documented reality is a
+ * 5px grid ([DPL] padding steps 5/10/15/20/25/30/50/60/80; [BG25 p.57] 30px
+ * button padding). Set `--spacing: 0.3125rem` in Tailwind v4 to land on it.
  *
  *   // tailwind.config.js
  *   import patterson from '@patterson/design-system/integrations/tailwind.config.js';
@@ -20,37 +23,38 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["proxima-nova", "Figtree", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif"],
-        display: ["proxima-nova", "Figtree", "system-ui", "sans-serif"],
+        sans: ["proxima-nova", "Arial", "sans-serif"],
+        display: ["proxima-nova", "Arial", "sans-serif"],
         mono: ["IBM Plex Mono", "ui-monospace", "SF Mono", "Menlo", "Consolas", "monospace"],
       },
       colors: {
-        navy: { DEFAULT: navy, 80: "#335f85", 60: "#6687a4", 40: "#99afc2", 20: "#ccd7e1", 10: "#e5ebf0" },
-        sky:  { DEFAULT: sky,  80: "#33b9e7", 60: "#66caed", 40: "#99dcf3", 20: "#ccedf9", 10: "#e5f6fc" },
+        // Tints: published 75/50/25 ramp over white [BG25 p.24].
+        navy: { DEFAULT: navy, 75: "#40698D", 50: "#809BB3", 25: "#BFCDD9" },
+        sky:  { DEFAULT: sky,  75: "#40BEE8", 50: "#80D4F0", 25: "#BFE9F8" },
         blue: "#147EC2",
         "blue-light": "#6DCFF6",
         green: "#7BC24D",
         teal: "#00817D",
         purple: "#522E91",
-        ink: "#1d1d20",
+        ink: "#003767",
         gray: {
           brand: "#58585B",
-          700: "#46464a", 600: "#58585B", 500: "#7c7c80", 400: "#a3a3a7",
-          300: "#c9c9cc", 200: "#e2e2e4", 100: "#ECECEC", 50: "#f6f7f8",
+          700: "#58585B", 600: "#58585B", 500: "#828284", 400: "#9B9B9B",
+          300: "#ACACAD", 200: "#D5D5D6", 100: "#ECECEC", 50: "#F8F8F8",
         },
-        success: "#00817D", "success-bg": "#e5f2f1",
-        info: "#147EC2", "info-bg": "#e7f1f9",
-        warning: "#d98a00", "warning-bg": "#fbf1df",
-        danger: "#c0392b", "danger-bg": "#f8eae8",
+        success: "#0CA50F", "success-bg": "#F8F8F8", // [DPL] .message-box--success
+        info: "#147EC2", "info-bg": "#F8F8F8",
+        warning: "#F5A623", "warning-bg": "#F8F8F8",
+        danger: "#D0021B", "danger-bg": "#F8F8F8",
         // role aliases
-        heading: "#1d1d20",
+        heading: "#003767",
         body: "#58585B",
-        muted: "#7c7c80",
-        link: "#147EC2",
-        border: "#e2e2e4",
-        "border-strong": "#a3a3a7",
+        muted: "#9B9B9B", // [DS20 p.7] digital medium grey
+        link: "#147CBD", // [DS20 p.8]
+        border: "#ECECEC",
+        "border-strong": "#A8A9AC",
         surface: "#FFFFFF",
-        "surface-subtle": "#f6f7f8",
+        "surface-subtle": "#F8F8F8",
         ring: sky,
       },
       fontSize: {
@@ -70,13 +74,14 @@ export default {
         light: "300", medium: "500", semibold: "600", bold: "700", extra: "800", black: "900",
       },
       lineHeight: {
-        tight: "1.05", snug: "1.2", heading: "1.15", body: "1.6", relaxed: "1.75",
+        // [BG25 p.27] headline 75% of size, body 125-150%; [DPL] web equivalents.
+        "print-headline": "0.75", tight: "1.15", snug: "1.25", heading: "1.3", body: "1.5", relaxed: "1.5",
       },
       letterSpacing: {
-        tight: "-0.02em", snug: "-0.01em", wide: "0.04em", caps: "0.08em",
+        tight: "-0.025em", snug: "-0.01em", wide: "0.04em", caps: "0.08em", // [BG25 p.27] tracking -25 / -10
       },
       borderRadius: {
-        xs: "2px", sm: "4px", md: "6px", lg: "10px", xl: "16px", "2xl": "24px", pill: "999px",
+        xs: "2px", sm: "5px", md: "6px", lg: "10px", xl: "16px", "2xl": "24px", pill: "999px",
       },
       boxShadow: {
         xs: "0 1px 2px rgba(0, 55, 103, 0.06)",
@@ -86,7 +91,7 @@ export default {
         xl: "0 24px 48px rgba(0, 55, 103, 0.16)",
       },
       maxWidth: {
-        container: "1240px",
+        container: "1300px", // [DPL]
         text: "720px",
       },
       transitionTimingFunction: {

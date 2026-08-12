@@ -26,8 +26,8 @@
 
 @theme {
   /* --- Fonts --------------------------------------------- */
-  --font-sans: 'proxima-nova', 'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-display: 'proxima-nova', 'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: 'proxima-nova', Arial, sans-serif;
+  --font-display: 'proxima-nova', Arial, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
   /* --- Brand colors -------------------------------------- */
@@ -40,50 +40,68 @@
   --color-teal: #00817D;
   --color-purple: #522E91;
 
-  /* navy tints */
-  --color-navy-80: #335f85;
-  --color-navy-60: #6687a4;
-  --color-navy-40: #99afc2;
-  --color-navy-20: #ccd7e1;
-  --color-navy-10: #e5ebf0;
+  /* Tints — published 75/50/25 ramp over white [BG25 p.24].
+     There is no 10/20/40/60/80 ramp in any Patterson source. */
+  --color-navy-75: #40698D;
+  --color-navy-50: #809BB3;
+  --color-navy-25: #BFCDD9;
+  --color-sky-75: #40BEE8;
+  --color-sky-50: #80D4F0;
+  --color-sky-25: #BFE9F8;
+  --color-blue-75: #4F9ED1;
+  --color-blue-50: #8ABEE0;
+  --color-blue-25: #C4DFF0;
+  --color-green-75: #9CD17A;
+  --color-green-50: #BDE0A6;
+  --color-green-25: #DEF0D2;
+  --color-teal-75: #40A09E;
+  --color-teal-50: #80C0BE;
+  --color-teal-25: #BFE0DE;
+  --color-purple-75: #7D62AC;
+  --color-purple-50: #A896C8;
+  --color-purple-25: #D4CBE4;
 
-  /* sky tints */
-  --color-sky-80: #33b9e7;
-  --color-sky-60: #66caed;
-  --color-sky-40: #99dcf3;
-  --color-sky-20: #ccedf9;
-  --color-sky-10: #e5f6fc;
+  /* Digital (WCAG-adjusted) palette [DS20 p.7-8], shipped in [DPL] */
+  --color-digital-sky: #269BCB;
+  --color-digital-link: #147CBD;
+  --color-digital-green: #0CA50F;
+  --color-digital-teal: #008E8B;
+  --color-digital-purple: #512E91;
+  --color-navy-deep: #001C34;
+  --color-rule: #D8D8D8;
+  --color-field-border: #A8A9AC;
+  --color-disabled-bg: #F0F0F0;
 
   /* cool-gray neutral ramp */
-  --color-ink: #1d1d20;
-  --color-gray-700: #46464a;
+  --color-ink: #003767;
+  --color-gray-700: #58585B;
   --color-gray-600: #58585B;
-  --color-gray-500: #7c7c80;
-  --color-gray-400: #a3a3a7;
-  --color-gray-300: #c9c9cc;
-  --color-gray-200: #e2e2e4;
+  --color-gray-500: #828284;
+  --color-gray-400: #9B9B9B;
+  --color-gray-300: #ACACAD;
+  --color-gray-200: #D5D5D6;
   --color-gray-100: #ECECEC;
-  --color-gray-50: #f6f7f8;
+  --color-gray-50: #F8F8F8;
 
   /* semantic */
-  --color-success: #00817D;
-  --color-success-bg: #e5f2f1;
+  --color-success: #0CA50F;   /* [DPL] .message-box--success */
+  --color-success-bg: #F8F8F8;
   --color-info: #147EC2;
-  --color-info-bg: #e7f1f9;
-  --color-warning: #d98a00;
-  --color-warning-bg: #fbf1df;
-  --color-danger: #c0392b;
-  --color-danger-bg: #f8eae8;
+  --color-info-bg: #F8F8F8;
+  --color-warning: #F5A623;
+  --color-warning-bg: #F8F8F8;
+  --color-danger: #D0021B;
+  --color-danger-bg: #F8F8F8;
 
   /* semantic aliases (name the role, not the hue) */
-  --color-heading: #1d1d20;
+  --color-heading: #003767;
   --color-body: #58585B;
-  --color-muted: #7c7c80;
-  --color-link: #147EC2;
-  --color-border: #e2e2e4;
-  --color-border-strong: #a3a3a7;
+  --color-muted: #9B9B9B;    /* [DS20 p.7] */
+  --color-link: #147CBD;     /* [DS20 p.8] link blue */
+  --color-border: #ECECEC;   /* [BG25 p.24] */
+  --color-border-strong: #A8A9AC;  /* [DPL] field border */
   --color-surface: #FFFFFF;
-  --color-surface-subtle: #f6f7f8;
+  --color-surface-subtle: #F8F8F8;
 
   /* --- Type scale (fluid where the brand is fluid) ------- */
   --text-xs: 0.75rem;
@@ -107,20 +125,23 @@
   --font-weight-black: 900;
 
   /* --- Line heights & tracking --------------------------- */
-  --leading-tight: 1.05;
-  --leading-snug: 1.2;
-  --leading-heading: 1.15;
-  --leading-body: 1.6;
-  --leading-relaxed: 1.75;
+  /* [BG25 p.27] headline leading 75% of size; body copy 125-150%.
+     [DPL] ships the web equivalents below. */
+  --leading-print-headline: 0.75;
+  --leading-tight: 1.15;
+  --leading-snug: 1.25;
+  --leading-heading: 1.3;
+  --leading-body: 1.5;
+  --leading-relaxed: 1.5;
 
-  --tracking-tight: -0.02em;
+  --tracking-tight: -0.025em;   /* [BG25 p.27] tracking -25, large scale only */
   --tracking-snug: -0.01em;
   --tracking-wide: 0.04em;
   --tracking-caps: 0.08em;
 
   /* --- Radii --------------------------------------------- */
   --radius-xs: 2px;
-  --radius-sm: 4px;
+  --radius-sm: 5px;    /* [BG25 p.57] "Rounded corners: 5px radius" */
   --radius-md: 6px;
   --radius-lg: 10px;
   --radius-xl: 16px;
@@ -135,7 +156,7 @@
   --shadow-xl: 0 24px 48px rgba(0, 55, 103, 0.16);
 
   /* --- Containers / measure ------------------------------ */
-  --container-container: 1240px;
+  --container-container: 1300px;   /* [DPL] page wrapper */
   --container-text: 720px;
 
   /* --- Motion -------------------------------------------- */

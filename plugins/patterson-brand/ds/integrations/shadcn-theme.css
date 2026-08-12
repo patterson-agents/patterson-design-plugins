@@ -7,7 +7,8 @@
 
    Maps shadcn's semantic contract to the Patterson brand. Colors are the
    exact brand hexes (not re-derived to oklch) so components render in true
-   Patterson navy & sky. --radius is 10px = the brand card radius.
+   Patterson navy & sky. --radius is 5px, the Patterson
+   radius [BG25 p.57] "Rounded corners: 5px radius".
 
    Light mode is the paper-white brand ground. The .dark palette is grounded
    in Patterson's existing navy emphasis surfaces (the navy hero bands and
@@ -19,37 +20,37 @@
    ============================================================ */
 
 :root {
-  --radius: 0.625rem; /* 10px — Patterson card radius (--radius-lg) */
+  --radius: 5px; /* [BG25 p.57] "Rounded corners: 5px radius" */
 
   --background: #ffffff;
-  --foreground: #1d1d20;
+  --foreground: #003767;
 
   --card: #ffffff;
-  --card-foreground: #1d1d20;
+  --card-foreground: #003767;
 
   --popover: #ffffff;
-  --popover-foreground: #1d1d20;
+  --popover-foreground: #003767;
 
   /* Primary = Patterson navy */
   --primary: #003767;
   --primary-foreground: #ffffff;
 
   /* Secondary = subtle neutral surface */
-  --secondary: #f6f7f8;
+  --secondary: #F8F8F8;
   --secondary-foreground: #003767;
 
   --muted: #ececec;
-  --muted-foreground: #7c7c80;
+  --muted-foreground: #828284;
 
   /* Accent = sky, used tinted for hover/highlight surfaces */
-  --accent: #e5f6fc;
+  --accent: #BFE9F8;
   --accent-foreground: #003767;
 
-  --destructive: #c0392b;
+  --destructive: #D0021B; /* [DPL] .message-box--error */
   --destructive-foreground: #ffffff;
 
-  --border: #e2e2e4;
-  --input: #c9c9cc;
+  --border: #D5D5D6;
+  --input: #ACACAD;
   --ring: #00a8e1; /* Patterson sky focus ring */
 
   /* Data-viz — the tertiary/brand palette */
@@ -64,9 +65,9 @@
   --sidebar-foreground: #ffffff;
   --sidebar-primary: #00a8e1;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #335f85;
+  --sidebar-accent: #40698D;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #335f85;
+  --sidebar-border: #40698D;
   --sidebar-ring: #00a8e1;
 }
 
@@ -75,45 +76,45 @@
   --background: #003767;
   --foreground: #ffffff;
 
-  --card: #0a4074;
+  --card: #40698D;
   --card-foreground: #ffffff;
 
-  --popover: #0a4074;
+  --popover: #40698D;
   --popover-foreground: #ffffff;
 
   /* On navy, sky becomes the primary action */
   --primary: #00a8e1;
   --primary-foreground: #003767;
 
-  --secondary: #335f85;
+  --secondary: #40698D;
   --secondary-foreground: #ffffff;
 
-  --muted: #335f85;
-  --muted-foreground: #ccd7e1;
+  --muted: #40698D;
+  --muted-foreground: #BFCDD9;
 
   --accent: #147ec2;
   --accent-foreground: #ffffff;
 
-  --destructive: #e5695c;
+  --destructive: #D0021B;
   --destructive-foreground: #ffffff;
 
-  --border: #335f85;
-  --input: #6687a4;
+  --border: #40698D;
+  --input: #809BB3;
   --ring: #00a8e1;
 
   --chart-1: #6dcff6;
   --chart-2: #00a8e1;
   --chart-3: #7bc24d;
-  --chart-4: #99dcf3;
-  --chart-5: #b79be0;
+  --chart-4: #80D4F0;
+  --chart-5: #9660F3;
 
-  --sidebar: #002846;
+  --sidebar: #001C34;
   --sidebar-foreground: #ffffff;
   --sidebar-primary: #00a8e1;
   --sidebar-primary-foreground: #003767;
-  --sidebar-accent: #335f85;
+  --sidebar-accent: #40698D;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #335f85;
+  --sidebar-border: #40698D;
   --sidebar-ring: #00a8e1;
 }
 
@@ -153,11 +154,11 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --font-sans: 'proxima-nova', 'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: 'proxima-nova', Arial, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 6px);
+  --radius-xl: calc(var(--radius) + 5px);
 }
