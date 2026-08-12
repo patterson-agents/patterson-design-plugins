@@ -23,11 +23,12 @@ die() { printf 'error: %s\n' "$*" >&2; exit 1; }
 
 record_state() {
   mkdir -p "$(dirname "$DEMO_STATE_FILE")"
-  cat >"$DEMO_STATE_FILE" <<EOF
-CREATED_WORKSPACE_LINK=$created_workspace_link
-DEMO_WORKSPACE=$DEMO_WORKSPACE
-DEMO_CLAUDE_CONFIG_DIR=$DEMO_CLAUDE_CONFIG_DIR
-EOF
+  {
+    printf 'CREATED_WORKSPACE_LINK=%s\n' "$created_workspace_link"
+    printf 'CREATED_CLAUDE_CONFIG_DIR=%s\n' "$created_claude_config_dir"
+    printf 'DEMO_WORKSPACE_B64=%s\n' "$(printf '%s' "$DEMO_WORKSPACE" | base64 | tr -d '\n')"
+    printf 'DEMO_CLAUDE_CONFIG_DIR_B64=%s\n' "$(printf '%s' "$DEMO_CLAUDE_CONFIG_DIR" | base64 | tr -d '\n')"
+  } >"$DEMO_STATE_FILE"
 }
 
 # --- 1. Rendering toolchain -------------------------------------------------
@@ -57,20 +58,24 @@ log "claude $(claude --version 2>/dev/null | head -n1)"
 
 # --- 3. Demo workspace ------------------------------------------------------
 created_workspace_link=0
+created_claude_config_dir=0
 if [ -e "$DEMO_WORKSPACE" ] || [ -L "$DEMO_WORKSPACE" ]; then
   log "Using existing demo workspace $DEMO_WORKSPACE"
 else
   mkdir -p "$(dirname "$DEMO_WORKSPACE")"
   ln -s "$DEMO_REPO_ROOT" "$DEMO_WORKSPACE"
   created_workspace_link=1
-  record_state
   log "Linked demo workspace $DEMO_WORKSPACE -> $DEMO_REPO_ROOT"
 fi
 
 # --- 4. Isolated Claude config ---------------------------------------------
 # Keeps the recording free of a developer's real plugins/history, and pre-answers the
 # first-run onboarding prompts so the tape's timings line up with the real session.
+if [ ! -d "$DEMO_CLAUDE_CONFIG_DIR" ]; then
+  created_claude_config_dir=1
+fi
 mkdir -p "$DEMO_CLAUDE_CONFIG_DIR"
+record_state
 cat >"$DEMO_CLAUDE_CONFIG_DIR/.claude.json" <<'JSON'
 {
   "hasCompletedOnboarding": true,
