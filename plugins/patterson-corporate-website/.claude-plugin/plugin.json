@@ -1,6 +1,6 @@
 {
   "name": "patterson-corporate-website",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Patterson corporate-website UI kit: interactive recreation of pattersoncompanies.com — home hero, We-Are-Patterson stats, capability tabs, What-We-Do, newsroom, header and footer as separate React screens.",
   "author": {
     "name": "Patterson Companies Design System"

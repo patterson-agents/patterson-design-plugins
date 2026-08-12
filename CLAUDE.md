@@ -46,6 +46,8 @@ The marketplace suffix is `@patterson-design` (from `marketplace.json` `name`), 
 
 - **`ds/` is a mirror of the source tree.** Files reference each other with relative paths (`../../styles.css`, `../../_ds_bundle.js`) that must resolve identically in this repo, in the plugin cache, and after being copied into a consuming project. **Never flatten, rename, or move files inside any `ds/`.**
 - **`ds/` snapshots are intentionally duplicated** across plugins so each plugin is self-contained. A change to a shared brand-core file (a token, font, or logo) must be **re-copied into every plugin's `ds/`** that references it — there is no shared/symlinked source.
+- **Ship only the assets a plugin actually references.** Because every `ds/` is duplicated, an unused file costs its size once per plugin. The SVG logo lockups and Proxima Nova woff2 subsets are small and live in every `ds/assets/`; the raster brand imagery (`wave-bg-navy.png`, `photo-markets.png`, `value-prop.png`, `color-palette.png`) is heavy and is snapshotted **only** into the plugins whose files reference it — currently `patterson-brand` (all four) and `patterson-deck` (wave background + photo band). Do not copy raster art into a plugin "just in case"; add it when a template starts using it.
+- **Keep raster art web-sized.** Brand PNGs are stored downscaled to their largest on-screen use (≤ 1920 px wide) and run through `pngquant` + `optipng`. Re-optimize any raster asset re-copied from upstream instead of committing the full-resolution original.
 - **Never hand-edit `ds/_ds_bundle.js`** — it is compiled upstream.
 - **`.claude-plugin/` holds only manifests** — `marketplace.json` at the repo-root `.claude-plugin/`, `plugin.json` at each plugin's `.claude-plugin/`. Skills, commands, and agents live *outside* `.claude-plugin/`, at the plugin root.
 - **Dual version source of truth:** for any content change, bump `version` in **both** `plugins/<name>/.claude-plugin/plugin.json` **and** the matching entry in `.claude-plugin/marketplace.json`, and keep them equal.
@@ -64,6 +66,8 @@ The marketplace suffix is `@patterson-design` (from `marketplace.json` `name`), 
 ## Maintenance loop (source → snapshots)
 
 This marketplace is *generated from* the upstream design-system project. When the source changes: (1) re-copy the changed files into every affected plugin `ds/` (plain copies, identical paths), (2) bump the paired versions, (3) `claude plugin validate .`, then commit.
+
+Raster assets get one extra step before (2): downscale to the largest size they are actually displayed at (≤ 1920 px wide), then `pngquant --quality=65-92 --strip` and `optipng -o2 -strip all`, and copy the optimized file only into the plugins that reference it. Install size is the metric that matters — every megabyte in a `ds/` is paid again by each plugin that carries it.
 
 ## Reference docs
 
