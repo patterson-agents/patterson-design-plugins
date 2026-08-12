@@ -7,6 +7,7 @@ This repository is a **Claude Code plugin marketplace** for the Patterson Compan
 - `.claude-plugin/marketplace.json` is the catalog. Each plugin lives at `plugins/<name>/` with **only** `plugin.json` inside its `.claude-plugin/` folder; `skills/`, `commands/`, `agents/` sit at the plugin root.
 - Every plugin's `ds/` folder mirrors the design-system source tree (`styles.css`, `tokens/`, `assets/`, `templates/…` or `ui_kits/…`). Files inside reference each other with relative paths like `../../styles.css` — **never move or flatten files inside `ds/`**, and never edit `ds/_ds_bundle.js` (generated).
 - `ds/` snapshots are deliberately duplicated across plugins so each plugin is self-contained. A token change must be re-copied into every plugin's snapshot.
+- Because of that duplication, a plugin's `ds/` ships **only the assets it references**. SVG logos and the Proxima Nova woff2 subsets are in every `ds/assets/`; the heavy raster brand imagery (`wave-bg-navy.png`, `photo-markets.png`, `value-prop.png`, `color-palette.png`) lives only in `patterson-brand` and, for the wave/photo pair, `patterson-deck`. Keep raster art downscaled (≤ 1920 px wide) and run through `pngquant` + `optipng`.
 
 ## Brand rules (apply to any HTML/CSS you touch)
 
