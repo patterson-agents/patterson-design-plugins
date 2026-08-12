@@ -4,6 +4,10 @@
 
 Output demos/vhs/gif/patterson-storefront.gif
 
+# Dependencies must exist before recording, otherwise the GIF just captures
+# a "command not found" error. Prepare them with: bash demos/vhs/render.sh
+Require claude
+
 Set Shell "bash"
 Set FontSize 15
 Set Width 1180
@@ -13,7 +17,7 @@ Set Theme { "name": "patterson", "background": "#001c34", "foreground": "#dceefb
 Set TypingSpeed 45ms
 
 Hide
-Type "cd ~/patterson-design-marketplace && clear" Enter
+Type 'cd "${PATTERSON_DEMO_DIR:-$HOME/patterson-design-marketplace}" && clear' Enter
 Show
 
 # Start Claude Code

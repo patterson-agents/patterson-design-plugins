@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - "demos/vhs/*.tape"
+      - "demos/vhs/render.sh"
+      - "demos/vhs/scripts/*.sh"
       - ".github/workflows/generate-vhs-gifs.yml"
   workflow_dispatch:
 
@@ -14,23 +16,46 @@ permissions:
 jobs:
   render-gifs:
     runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Render all tapes
+      - name: Check credentials
+        id: creds
+        run: |
+          if [ -n "${ANTHROPIC_API_KEY:-}" ]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::ANTHROPIC_API_KEY is not configured — skipping rendering so we never commit a GIF of a login prompt."
+          fi
+
+      - name: Set up Node
+        if: steps.creds.outputs.available == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install VHS toolchain
+        if: steps.creds.outputs.available == 'true'
         run: |
           set -euo pipefail
-          mkdir -p demos/vhs/gif
-          for tape in demos/vhs/*.tape; do
-            docker run --rm \
-              -v "$PWD:/vhs" \
-              -w /vhs \
-              ghcr.io/charmbracelet/vhs:latest \
-              "$tape"
-          done
+          sudo mkdir -p /etc/apt/keyrings
+          curl -fsSL https://repo.charm.sh/apt/gpg.key \
+            | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
+          echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" \
+            | sudo tee /etc/apt/sources.list.d/charm.list >/dev/null
+          sudo apt-get update
+          sudo apt-get install -y vhs ttyd ffmpeg
+
+      - name: Render all tapes (setup -> render -> teardown)
+        if: steps.creds.outputs.available == 'true'
+        run: bash demos/vhs/render.sh
 
       - name: Commit generated GIFs
+        if: steps.creds.outputs.available == 'true'
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "chore: regenerate VHS GIF demos"

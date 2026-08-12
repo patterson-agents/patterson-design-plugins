@@ -33,9 +33,11 @@ claude
 # Docs / demo preview (static — no build)
 npx --yes serve -l 3000 .         # then open /docs/ or /demos/
 
-# Render terminal demo GIFs (optional; requires charmbracelet/vhs)
-vhs demos/vhs/patterson-deck.tape          # → demos/vhs/gif/patterson-deck.gif
-for t in demos/vhs/*.tape; do vhs "$t"; done
+# Render terminal demo GIFs (optional; requires charmbracelet/vhs + Claude credentials)
+# render.sh installs/verifies deps first and tears them down after — never call vhs
+# directly on a machine without the claude CLI, or the GIF records the error.
+bash demos/vhs/render.sh patterson-deck    # → demos/vhs/gif/patterson-deck.gif
+bash demos/vhs/render.sh                   # render all tapes
 ```
 
 The marketplace suffix is `@patterson-design` (from `marketplace.json` `name`), independent of the repo folder name.

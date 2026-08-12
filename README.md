@@ -125,9 +125,10 @@ patterson-design-marketplace/
 - **[demos/vhs/](demos/vhs/)** — one [VHS](https://github.com/charmbracelet/vhs) tape per plugin scripting a real terminal session (install → slash command). Render the GIFs with:
 
 ```bash
-brew install vhs        # or: go install github.com/charmbracelet/vhs@latest
-vhs demos/vhs/patterson-deck.tape     # writes demos/vhs/gif/patterson-deck.gif
-for t in demos/vhs/*.tape; do vhs "$t"; done   # render all
+brew install vhs        # or: sudo apt install vhs ttyd ffmpeg
+export ANTHROPIC_API_KEY=...              # the tapes drive a real claude session
+bash demos/vhs/render.sh patterson-deck   # writes demos/vhs/gif/patterson-deck.gif
+bash demos/vhs/render.sh                  # render all
 ```
 
 Each plugin README embeds its GIF once rendered.

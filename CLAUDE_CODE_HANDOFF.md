@@ -174,8 +174,9 @@ on-brand artifact via their primary slash command (listed in each plugin's READM
 VHS tapes script real terminal sessions (install → slash command) per plugin.
 
 ```bash
-brew install vhs        # or: go install github.com/charmbracelet/vhs@latest
-for t in demos/vhs/*.tape; do vhs "$t"; done   # writes demos/vhs/gif/*.gif
+brew install vhs        # or: sudo apt install vhs ttyd ffmpeg
+export ANTHROPIC_API_KEY=...   # the tapes drive a real claude session
+bash demos/vhs/render.sh       # setup deps → render all tapes → teardown
 ```
 
 Open `demos/index.html` in a browser (or `npx serve` and visit `/demos/`) to browse every

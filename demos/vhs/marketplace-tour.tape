@@ -3,6 +3,10 @@
 
 Output demos/vhs/gif/marketplace-tour.gif
 
+# Dependencies must exist before recording, otherwise the GIF just captures
+# a "command not found" error. Prepare them with: bash demos/vhs/render.sh
+Require claude
+
 Set Shell "bash"
 Set FontSize 15
 Set Width 1180
@@ -11,11 +15,15 @@ Set Padding 24
 Set Theme { "name": "patterson", "background": "#001c34", "foreground": "#dceefb", "cursor": "#00a8e1", "selection": "#147ec2", "black": "#0b2a45", "red": "#ff7a7a", "green": "#7bc24d", "yellow": "#ffd479", "blue": "#00a8e1", "magenta": "#b48ede", "cyan": "#5ad1e6", "white": "#eef6fb", "brightBlack": "#3d5a75", "brightRed": "#ff9d9d", "brightGreen": "#9ad97a", "brightYellow": "#ffe3a3", "brightBlue": "#57c8f0", "brightMagenta": "#cbaef0", "brightCyan": "#8ce1f2", "brightWhite": "#ffffff" }
 Set TypingSpeed 45ms
 
+Hide
+Type 'cd "${PATTERSON_DEMO_DIR:-$HOME/patterson-design-marketplace}" && clear' Enter
+Show
+
 Type "claude"
 Sleep 500ms
 Enter
 Sleep 3s
-Type "/plugin marketplace add patterson-agents/design-system"
+Type "/plugin marketplace add ."
 Sleep 800ms
 Enter
 Sleep 2.5s
